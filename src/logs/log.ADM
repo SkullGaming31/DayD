@@ -1,0 +1,59 @@
+
+
+******************************************************************************
+AdminLog started on 2023-07-18 at 19:00:45
+19:02:01 | Player "Toshaki991" is connected (id=FDB739E2A45D27F17AE143816D61C276EB9700C2)
+19:02:37 | Player "Synin4904" is connected (id=311724CFBD1A779F27CC074DE5822ECD40309D40)
+19:04:22 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3371.4, 3929.8, 186.0>)[HP: 98.3125] hit by ZmbM_Jacket_khaki into LeftLeg(8) for 6.75 damage (MeleeZombieMale)
+19:04:53 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3372.4, 3932.3, 186.2>)[HP: 97.6168] hit by ZmbM_FarmerFat_Brown into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+19:04:57 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3372.8, 3930.9, 186.1>)[HP: 96.0195] hit by ZmbM_FarmerFat_Brown into LeftLeg(8) for 6.75 damage (MeleeZombieMale)
+19:05:51 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10050.8, 10385.4, 151.6>)[HP: 98.3125] hit by ZmbM_FarmerFat_Blue into LeftLeg(8) for 6.75 damage (MeleeZombieMale)
+19:06:11 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10089.9, 10384.6, 149.0>)[HP: 98.1942] hit by ZmbM_Jacket_stripes into LeftArm(18) for 7.5 damage (MeleeZombieMale)
+19:06:14 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10090.4, 10384.3, 149.0>)[HP: 97.5344] hit by ZmbM_Jacket_stripes into RightArm(17) for 7.5 damage (MeleeZombieMale)
+19:06:29 | ##### PlayerList log: 2 players
+19:06:29 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10130.5, 10367.7, 147.7>)
+19:06:29 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3356.6, 3950.1, 187.0>)
+19:06:29 | #####
+19:07:04 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3353.9, 3945.8, 187.0>)[HP: 91.6281] hit by ZmbF_VillagerOld_Red into Torso(1) for 7.5 damage (MeleeZombieFemale)
+19:10:01 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10448.7, 9905.5, 114.8>)[HP: 98.875] hit by ZmbM_JoggerSkinny_Green into RightLeg(3) for 4.5 damage (MeleeZombie)
+19:10:32 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10466, 9902.8, 112.4>)[HP: 99.1168] hit by ZmbM_Jacket_brown into LeftArm(18) for 7.5 damage (MeleeZombieMale)
+19:10:34 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10467.1, 9902.8, 112.4>)[HP: 92.3668] hit by ZmbM_Jacket_brown into Torso(1) for 6.75 damage (MeleeZombieMale)
+19:10:36 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10467.4, 9903.2, 112.4>)[HP: 91.7069] hit by ZmbM_Jacket_brown into RightArm(17) for 7.5 damage (MeleeZombieMale)
+19:10:45 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10468.4, 9904.9, 112.4>)[HP: 91.2273] hit by ZmbM_Jacket_blue into LeftArm(18) for 7.5 damage (MeleeZombieMale)
+19:10:46 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10467.6, 9905.6, 112.4>)[HP: 89.5398] hit by ZmbM_Jacket_blue into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+19:10:47 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10468.6, 9906, 112.4>)[HP: 87.9424] hit by ZmbM_Jacket_blue into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+19:11:29 | ##### PlayerList log: 2 players
+19:11:29 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10483, 9882.3, 110.3>)
+19:11:29 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3304.1, 3893.5, 186.7>)
+19:11:29 | #####
+19:11:38 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10502.6, 9876.4, 106.8>)[HP: 88.2564] hit by ZmbF_JoggerSkinny_Green into LeftLeg(8) for 4.5 damage (MeleeZombie)
+19:11:39 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10501, 9875.7, 107.1>)[HP: 88.2564] hit by ZmbF_JoggerSkinny_Green into LeftArm(18) for 0 damage (Dummy_Light)
+19:11:43 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10501.7, 9874.8, 107.0>)[HP: 87.8402] hit by ZmbF_JoggerSkinny_Green into RightArm(17) for 5 damage (MeleeZombie)
+19:11:44 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10501.8, 9874.6, 107.0>)[HP: 83.424] hit by ZmbF_JoggerSkinny_Green into Torso(1) for 4.5 damage (MeleeZombie)
+19:14:14 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10612.3, 9967.9, 97.8>)[HP: 80.872] hit by ZmbF_MilkMaidOld_Beige into Torso(1) for 6.75 damage (MeleeZombieFemale)
+19:16:29 | ##### PlayerList log: 2 players
+19:16:29 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10525.5, 9737.3, 127.9>)
+19:16:29 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3271.8, 3877.8, 192.4>)
+19:16:29 | #####
+19:16:37 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10529.9, 9739.7, 128.0>)[HP: 82.9457] hit by ZmbM_FarmerFat_Blue into LeftLeg(8) for 6.75 damage (MeleeZombieMale)
+19:16:39 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10529, 9739.2, 128.1>)[HP: 82.2802] hit by ZmbM_FarmerFat_Blue into RightArm(17) for 7.5 damage (MeleeZombieMale)
+19:19:16 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10541, 9651.0, 135.6>)[HP: 79.3277] hit by ZmbM_Jacket_stripes into Torso(1) for 6.75 damage (MeleeZombieMale)
+19:19:19 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10541, 9650.4, 135.6>)[HP: 77.3865] hit by ZmbM_Jacket_stripes into LeftLeg(8) for 7.5 damage (MeleeZombieMale)
+19:19:20 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10541.4, 9649.1, 135.7>)[HP: 76.5862] hit by ZmbM_Jacket_stripes into RightArm(17) for 7.5 damage (MeleeZombieMale)
+19:19:45 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3249.8, 4014.7, 200.2>)[HP: 99.5] hit by ZmbM_JoggerSkinny_Green into RightArm(17) for 5 damage (MeleeZombie)
+19:20:10 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3250.0, 4011.2, 201.8>)[HP: 99.5] hit by ZmbM_JoggerSkinny_Green into RightArm(17) for 5 damage (MeleeZombie)
+19:21:29 | ##### PlayerList log: 2 players
+19:21:29 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<10886.2, 9997.1, 73.3>)
+19:21:29 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3256.4, 4014.2, 202.0>)
+19:21:29 | #####
+19:26:20 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<12109.7, 9768.5, 12.3>)[HP: 84.0871] hit by ZmbF_ShortSkirt_red into LeftArm(18) for 5 damage (MeleeZombie)
+19:26:24 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<12108.1, 9768.1, 12.3>)[HP: 79.6726] hit by ZmbF_ShortSkirt_red into Torso(1) for 4.5 damage (MeleeZombie)
+19:26:29 | ##### PlayerList log: 2 players
+19:26:29 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<12109.1, 9767.5, 12.3>)
+19:26:29 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3264.3, 4024.9, 200.3>)
+19:26:29 | #####
+19:27:29 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<12113.1, 9767.5, 12.7>) placed Medium Tent
+19:31:29 | ##### PlayerList log: 2 players
+19:31:29 | Player "Toshaki991" (id=FDB739E2A45D27F17AE143816D61C276EB9700C2 pos=<12117.2, 9768.3, 12.3>)
+19:31:29 | Player "Synin4904" (id=311724CFBD1A779F27CC074DE5822ECD40309D40 pos=<3396.5, 3918.4, 186.9>)
+19:31:29 | #####
