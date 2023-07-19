@@ -41,6 +41,7 @@ guilds
   <p align="center">
     DayD Discord & killfeed Bot<br>
     ·
+    All Killfeed code belongs to OFFSETSYNT4X as i used his admin command for the killfeed, check out Acknowledgments for a link to the Original Repository
     <a href="https://github.com/skullgaming31/DayD/issues">Report Bug</a>
     ·
     <a href="https://github.com/skullgaming31/DayD/issues">Request Feature</a>
@@ -97,8 +98,9 @@ check out <a href="#setup"></a> to learn to get a copy of the project
 
 
 ## NOTES
-This is not a Overlay Expert Official Project, this project is based on the Overlay Expert Discord
-where i created the discord bot in Javascript, i am attempting to convert it to use ``Typescript`` instead.
+Modifed Date: 2023-07-18
+I am not affiliated with OFFSETSYNT4X and all the killfeed code rightfully belongs to OFFSETSYNT4X
+check out his github here where the original code is
 
 ### Prerequisites
 
@@ -121,7 +123,7 @@ Requirements
 1. Create a Discord Developer Application [Discord Developer Application](https://discord.com/developers/applications)
 2. Clone the repo
    ```sh
-   git clone https://github.com/skullgaming31/overlayExpert.git
+   git clone https://github.com/skullgaming31/DayD.git
    ```
 3. Install NPM packages
    ```sh
@@ -149,7 +151,7 @@ Requirements
 * [x] Ticket System
 * [ ] Warning System
 
-See the [open issues](https://github.com/skullgaming31/overlayExpert/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/skullgaming31/DayD/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -181,14 +183,14 @@ Distributed under the MIT License. checkout LICENSE.md
 
 Corey - [@skullgaming31](https://twitter.com/canadiendragon) - skullgamingg31@gmail.com
 
-Project Link: [Overlay Expert in Typescript](https://github.com/skullgaming31/overlayExpert)
+Project Link: [DayD](https://github.com/skullgaming31/DayD)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [OFFSETSYNT4X](https://github.com/OFFSETSYNT4X)
+* [OFFSETSYNT4X](https://github.com/OFFSETSYNT4X/KILLFEED-DIY-TUTORIAL-2.0)
 * []()
 * []()
 
