@@ -290,7 +290,7 @@ export default new Command({
 												if (config.showLoc === 1) {
 													const url = 'https://thecodegang.com';
 													const link = hyperlink('Sign-up for DayZero', url);
-													const attachment = new AttachmentBuilder('./images/crown.png');
+													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
@@ -303,7 +303,7 @@ export default new Command({
 												}else {
 													const url = 'https://thecodegang.com';
 													const link = hyperlink('Sign-up for DayZero', url);
-													const attachment = new AttachmentBuilder('./images/crown.png');
+													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
@@ -330,20 +330,21 @@ export default new Command({
 												if (config.showLoc === 1) {
 													const url = 'https://thecodegang.com';
 													const link = hyperlink('Sign-up for DayZero', url);
-													const attachment = new AttachmentBuilder('./images/crown.png');
+													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
 														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
 														.addFields({  name: '🌐', value: `${linkLoc+Vloc}`})
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+														.setFooter({ text: `Get Your Free Killfeed! ${link}` })
+														.setURL(link);
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}else {
 													const url = 'https://thecodegang.com';
 													const link = hyperlink('Sign-up for DayZero', url);
-													const attachment = new AttachmentBuilder('./images/crown.png');
+													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
@@ -361,7 +362,7 @@ export default new Command({
 											const f3 = methodVal;
 											dt0 = Date.now();
 											//Player Vs NPC Kill
-											// const attachment = new AttachmentBuilder('./images/crown.png');
+											// const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											// const embed = new MessageEmbed()
 											// .setColor('0xDD0000')
 											// .setTitle(`${SERVER_NAME} Killfeed Notification`)
@@ -381,7 +382,7 @@ export default new Command({
 											//Send Killfeed Notification to Discord
 											const url = 'https://thecodegang.com';
 											const link = hyperlink('Sign-up for DayZero', url);
-											const attachment = new AttachmentBuilder('./images/crown.png');
+											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
@@ -398,7 +399,7 @@ export default new Command({
 											//Send Killfeed Notification to Discord
 											const url = 'https://thecodegang.com';
 											const link = hyperlink('Sign-up for DayZero', url);
-											const attachment = new AttachmentBuilder('./images/crown.png');
+											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
@@ -415,7 +416,7 @@ export default new Command({
 											//Send Killfeed Notification to Discord
 											const url = 'https://thecodegang.com';
 											const link = hyperlink('Sign-up for DayZero', url);
-											const attachment = new AttachmentBuilder('./images/crown.png');
+											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
@@ -435,7 +436,7 @@ export default new Command({
 											//Send Killfeed Notification to Discord
 											const url = 'https://thecodegang.com';
 											const link = hyperlink('Sign-up for DayZero', url);
-											const attachment = new AttachmentBuilder('./images/crown.png');
+											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
@@ -483,7 +484,7 @@ export default new Command({
 											//Send Killfeed Notification to Discord
 											const url = 'https://thecodegang.com';
 											const link = hyperlink('Sign-up for DayZero', url);
-											const attachment = new AttachmentBuilder('./images/crown.png');
+											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)

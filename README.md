@@ -1,4 +1,4 @@
-# DragonBot
+# DayDBot
 <div id="top"></div>
 <!-- NOTEs: -->
 
@@ -32,18 +32,18 @@ guilds
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/skullgaming31/DragonBot">
+  <a href="https://github.com/skullgaming31/DayD">
     <img src="./assets/images/logo.png" alt="Project Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Dragon DiscordBot</h3>
+<h3 align="center">DayD Discord & killfeed Bot</h3>
 
   <p align="center">
-    Dragon Discord Bot<br>
+    DayD Discord & killfeed Bot<br>
     ·
-    <a href="https://github.com/skullgaming31/DragonBot/issues">Report Bug</a>
+    <a href="https://github.com/skullgaming31/DayD/issues">Report Bug</a>
     ·
-    <a href="https://github.com/skullgaming31/DragonBot/issues">Request Feature</a>
+    <a href="https://github.com/skullgaming31/DayD/issues">Request Feature</a>
   </p>
 </div>
 
@@ -196,14 +196,14 @@ Project Link: [Overlay Expert in Typescript](https://github.com/skullgaming31/ov
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/SkullGaming31/DragonBot.svg?style=for-the-badge
-[contributors-url]: https://github.com/SkullGaming31/DragonBot/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/SkullGaming31/DragonBot.svg?style=for-the-badge
-[forks-url]: https://github.com/SkullGaming31/DragonBot/network/members
-[stars-shield]: https://img.shields.io/github/stars/SkullGaming31/DragonBot.svg?style=for-the-badge
-[stars-url]: https://github.com/SkullGaming31/DragonBot/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SkullGaming31/DragonBot.svg?style=for-the-badge
-[issues-url]: https://github.com/SkullGaming31/DragonBot/issues
-[license-shield]: https://img.shields.io/github/license/SkullGaming31/DragonBot.svg?style=for-the-badge
-[license-url]: https://github.com/SkullGaming31/DragonBot/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/SkullGaming31/DayD.svg?style=for-the-badge
+[contributors-url]: https://github.com/SkullGaming31/DayD/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/SkullGaming31/DayD.svg?style=for-the-badge
+[forks-url]: https://github.com/SkullGaming31/DayD/network/members
+[stars-shield]: https://img.shields.io/github/stars/SkullGaming31/DayD.svg?style=for-the-badge
+[stars-url]: https://github.com/SkullGaming31/DayD/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SkullGaming31/DayD.svg?style=for-the-badge
+[issues-url]: https://github.com/SkullGaming31/DayD/issues
+[license-shield]: https://img.shields.io/github/license/SkullGaming31/DayD.svg?style=for-the-badge
+[license-url]: https://github.com/SkullGaming31/DayD/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
