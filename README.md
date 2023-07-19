@@ -27,7 +27,7 @@ guilds
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![GPU License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -41,7 +41,7 @@ guilds
   <p align="center">
     DayD Discord & killfeed Bot<br>
     ·
-    All Killfeed code belongs to OFFSETSYNT4X as i used his admin command for the killfeed, check out Acknowledgments for a link to the Original Repository
+    All Killfeed code belongs to OFFSETSYNT4X as i used his admin command for the killfeed, check out Acknowledgments for a link to the Original Repository<
     <a href="https://github.com/skullgaming31/DayD/issues">Report Bug</a>
     ·
     <a href="https://github.com/skullgaming31/DayD/issues">Request Feature</a>

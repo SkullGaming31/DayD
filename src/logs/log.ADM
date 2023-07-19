@@ -210,3 +210,32 @@ AdminLog started on 2023-07-18 at 19:00:45
 20:25:49 | Player "Unknown/Dead Entity" (id=Unknown pos=<13491.9, 14015, 22.4>) died. Stats> Water: 547.508 Energy: 522.864 Bleed sources: 1
 20:25:50 | Player "Toshaki991"(id=FDB739E2A45D27F17AE143816D61C276EB9700C2) has been disconnected
 20:26:03 | Player "Synin4904"(id=311724CFBD1A779F27CC074DE5822ECD40309D40) has been disconnected
+20:48:43 | Player "toxictroop2908" is connected (id=27D40E0C02C07E223CAC00E793BD226845BBC76E)
+20:49:59 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<1640.9, 2210.3, 6.6>)[HP: 99.5] hit by ZmbM_JoggerSkinny_Blue into LeftArm(18) for 5 damage (MeleeZombie)
+20:50:53 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<1723.6, 2174.9, 5.6>)[HP: 99.5] hit by ZmbF_JoggerSkinny_Blue into RightArm(17) for 5 damage (MeleeZombie)
+20:51:29 | ##### PlayerList log: 1 players
+20:51:29 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<1741.1, 2195.5, 5.8>)
+20:51:29 | #####
+20:55:30 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<2326.4, 2075.3, 6.1>)[HP: 93.25] hit by ZmbF_MilkMaidOld_Black into Torso(1) for 6.75 damage (MeleeZombieFemale)
+20:56:29 | ##### PlayerList log: 1 players
+20:56:29 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<2623.1, 2019.0, 6.4>)
+20:56:29 | #####
+20:57:54 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3106.7, 2126.6, 8.8>)[HP: 96.4537] hit by ZmbF_JoggerSkinny_Blue into RightLeg(3) for 4.5 damage (MeleeZombie)
+20:59:24 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3598.9, 2231.6, 6.0>)[HP: 92.9116] hit by ZmbM_JoggerSkinny_Green into Torso(1) for 4.5 damage (MeleeZombie)
+20:59:49 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3622.1, 2212.0, 6.0>)[HP: 90.0845] hit by ZmbM_JoggerSkinny_Green into RightLeg(3) for 4.5 damage (MeleeZombie)
+21:00:16 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3627.0, 2215.7, 7.2>)[HP: 88.1803] hit by ZmbM_JoggerSkinny_Green into LeftArm(18) for 0 damage (Dummy_Light)
+21:01:29 | ##### PlayerList log: 1 players
+21:01:29 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3629.0, 2215.8, 6.0>)
+21:01:29 | #####
+21:03:45 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3652.4, 2220.9, 13.1>)[HP: 71.889] hit by ZmbM_ConstrWorkerNormal_Green into LeftLeg(8) for 6.75 damage (MeleeZombieMale)
+21:03:47 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3653.0, 2219.6, 5.9>)[HP: 52.7798] hit by FallDamageHealth
+21:03:57 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3630.7, 2238.9, 6.0>)[HP: 50.1628] hit by ZmbM_ConstrWorkerNormal_Green into LeftLeg(8) for 7.5 damage (MeleeZombieMale)
+21:04:00 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3628.9, 2238.9, 6.0>)[HP: 49.2975] hit by ZmbM_ConstrWorkerNormal_Green into RightArm(17) for 7.5 damage (MeleeZombieMale)
+21:04:01 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3627.8, 2238.5, 6.0>)[HP: 47.4068] hit by ZmbM_ConstrWorkerNormal_Green into RightLeg(3) for 7.5 damage (MeleeZombieMale)
+21:04:08 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3628.2, 2239.4, 6.0>)[HP: 44.9933] hit by ZmbM_ConstrWorkerNormal_Green into LeftLeg(8) for 7.5 damage (MeleeZombieMale)
+21:04:10 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3628.1, 2239.8, 6.0>)[HP: 38.0424] hit by ZmbM_ConstrWorkerNormal_Green into Torso(1) for 6.75 damage (MeleeZombieMale)
+21:04:12 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3628.3, 2239.5, 6.0>)[HP: 37.1731] hit by ZmbM_ConstrWorkerNormal_Green into RightArm(17) for 7.5 damage (MeleeZombieMale)
+21:06:29 | ##### PlayerList log: 1 players
+21:06:29 | Player "toxictroop2908" (id=27D40E0C02C07E223CAC00E793BD226845BBC76E pos=<3667.4, 2414.2, 6.0>)
+21:06:29 | #####
+21:06:48 | Player "toxictroop2908"(id=27D40E0C02C07E223CAC00E793BD226845BBC76E) has been disconnected
