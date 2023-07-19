@@ -41,7 +41,7 @@ guilds
   <p align="center">
     DayD Discord & killfeed Bot<br>
     ·
-    All Killfeed code belongs to OFFSETSYNT4X as i used his admin command for the killfeed, check out Acknowledgments for a link to the Original Repository<
+    All Killfeed code belongs to OFFSETSYNT4X as i used his admin command for the killfeed, check out Acknowledgments for a link to the Original Repository<br >
     <a href="https://github.com/skullgaming31/DayD/issues">Report Bug</a>
     ·
     <a href="https://github.com/skullgaming31/DayD/issues">Request Feature</a>
