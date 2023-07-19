@@ -174,7 +174,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. checkout LICENSE.md
+Distributed under the GPL V3 License. checkout LICENSE
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
