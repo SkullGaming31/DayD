@@ -78,8 +78,8 @@ guilds
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-This is a Discord Bot for the Discord Server Overlay Expert, a twitch extension that overlays your custom overlay over your stream without a pc.<br />
-[Overlay Expert](https://overlay.expert)
+This is a discord/killfeed bot for DayZ<br />
+[DayZ](https://dayz.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -188,7 +188,7 @@ Project Link: [Overlay Expert in Typescript](https://github.com/skullgaming31/ov
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
+* [OFFSETSYNT4X](https://github.com/OFFSETSYNT4X)
 * []()
 * []()
 
