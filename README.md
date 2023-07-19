@@ -27,7 +27,6 @@ guilds
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![GPU License][license-shield]][license-url]
 [![License: GPL v3][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
