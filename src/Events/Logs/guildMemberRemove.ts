@@ -8,7 +8,7 @@ export default new Event<'guildMemberRemove'>('guildMemberRemove', async (member
 	try {
 		const { guild, user } = member;
 
-		const data = await settings.findOne({ GuildID: guild.id }).catch((err: MongooseError) => { console.error(err.message); });
+		const data = await settings.findOne({ GuildID: guild.id }).catch((err: MongooseError) => { console.error(err); });
 		if (data?.WelcomeChannel === undefined) return;
 		const logsChannelOBJ = guild.channels.cache.get(data.WelcomeChannel) as TextBasedChannel | undefined;
 		if (!logsChannelOBJ || logsChannelOBJ.type !== ChannelType.GuildText) return;

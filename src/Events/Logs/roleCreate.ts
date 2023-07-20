@@ -17,7 +17,11 @@ export default new Event<'roleCreate'>('roleCreate', async (role: Role) => {
 	const logsChannelOBJ = guild.channels.cache.get(logsChannelID) as TextBasedChannel | undefined;
 	if (!logsChannelOBJ || logsChannelOBJ.type !== ChannelType.GuildText) return;
 
-	const Embed = new EmbedBuilder().setTitle('Role Created').setDescription(`a role has been created named: ${role}, \`${name}\``).setColor(role.color).setTimestamp();
+	const Embed = new EmbedBuilder()
+		.setTitle('Role Created')
+		.setDescription(`a role has been created named: ${role}, \`${name}\``)
+		.setColor(role.color)
+		.setTimestamp();
 
 	try {
 		await logsChannelOBJ.send({ embeds: [Embed] });

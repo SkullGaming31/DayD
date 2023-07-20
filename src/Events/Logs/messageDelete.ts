@@ -1,4 +1,4 @@
-import { ChannelType, EmbedBuilder, ErrorEvent, Message, PartialMessage, TextBasedChannel } from 'discord.js';
+import { ChannelType, EmbedBuilder, ErrorEvent, Message, PartialMessage, TextBasedChannel, channelMention } from 'discord.js';
 import { MongooseError } from 'mongoose';
 
 import ChanLogger from '../../Database/Schemas/LogsChannelDB'; // DB
@@ -17,14 +17,16 @@ export default new Event<'messageDelete'>('messageDelete', async (message: Messa
 	const logsChannelOBJ = guild.channels.cache.get(logsChannelID) as TextBasedChannel | undefined;
 	if (!logsChannelOBJ || logsChannelOBJ.type !== ChannelType.GuildText) return;
 
+	const channelSearch = channelMention(channel.id);
+
 	const logsEmbed = new EmbedBuilder()
 		.setTitle('Automated Message Deletion')
-		.setAuthor({ name: author?.tag ?? 'Thread Message Deleted'})
+		.setAuthor({ name: author?.username ?? 'Thread Message Deleted'})
 		.setColor('Red')
 		.addFields([
-			{ name: 'User', value: author?.username ?? 'Unknown' },
-			{ name: '🚨 | Deleted Message: ', value: `${message.content ?? 'None'}`.slice(0, 4096) },
-			{ name: 'Channel', value: `${channel}` },
+			{ name: 'User', value: `\`${author?.username ?? 'Unknown'}\`` },
+			{ name: '🚨 | Deleted Message: ', value: `\`${message.content ?? 'None'}\``.slice(0, 4096) },
+			{ name: 'Channel', value: `${channelSearch}` },
 		])
 		.setURL(`${message.url}`)
 		.setFooter({ text: `UserID: ${author?.id ?? 'Unknown'}` })

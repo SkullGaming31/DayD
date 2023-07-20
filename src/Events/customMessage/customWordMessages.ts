@@ -14,7 +14,7 @@ function createHelpEmbed(authorTag: string, guildName?: string) {
 async function handleHelpMessage(message: Message) {
 	if (message.content.includes('help') && message.content.endsWith('?')) {
 		const { author, guild, channel } = message;
-		const embed = createHelpEmbed(author.tag, guild?.name);
+		const embed = createHelpEmbed(author.username, guild?.name);
 		if (channel.type === ChannelType.GuildText) {
 			await message.reply({ embeds: [embed] });
 		}

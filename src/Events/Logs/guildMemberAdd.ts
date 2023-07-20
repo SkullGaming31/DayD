@@ -1,4 +1,4 @@
-import { ChannelType, EmbedBuilder, TextBasedChannel } from 'discord.js';
+import { ChannelType, EmbedBuilder, TextBasedChannel, channelMention, userMention } from 'discord.js';
 import { MongooseError } from 'mongoose';
 
 import settings from '../../Database/Schemas/settingsDB';
@@ -19,11 +19,12 @@ export default new Event<'guildMemberAdd'>('guildMemberAdd', async (member) => {
 	// 	messageToSend = `Welcome to ${guild.name}'s server!`;
 	// }
 	const messageToSend = guild.rulesChannel ? `Welcome to ${guild.name}'s server! Please read the rules in <#${guild.rulesChannelId}>.` : `Welcome to ${guild.name}'s server!`;
+	const changeLogs = channelMention('1131412234510282753');
 
 	const embed = new EmbedBuilder()
 		.setTitle('New Member')
 		.setDescription(messageToSend)
-		.setAuthor({ name: user.tag, iconURL: user.displayAvatarURL({ size: 512 })})
+		.setAuthor({ name: user.username, iconURL: user.displayAvatarURL({ size: 512 })})
 		.setColor('Blue')
 		.addFields([
 			{
@@ -36,13 +37,19 @@ export default new Event<'guildMemberAdd'>('guildMemberAdd', async (member) => {
 				value: `${guild.memberCount}`,
 				inline: true,
 			},
+			{
+				name: 'Changelogs',
+				value: `${changeLogs}`,
+				inline: true
+			}
 		])
 		.setThumbnail(guild.iconURL({ size: 512 }))
 		.setFooter({ text: `UserID: ${member.id}`})
 		.setTimestamp();
 	try {
 		if (data.Welcome === true) {
-			await logsChannelOBJ.send({ content: `Welcome ${member}`, embeds: [embed] });
+			const userWelcome = userMention(member.id);
+			await logsChannelOBJ.send({ content: `Welcome ${userWelcome}`, embeds: [embed] });
 		}
 	} catch (error) {
 		console.error(error);

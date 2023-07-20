@@ -16,7 +16,12 @@ export default new Event<'guildBanAdd'>('guildBanAdd', async (ban: GuildBan) => 
 	const logsChannelOBJ = guild.channels.cache.get(logsChannelID) as TextBasedChannel | undefined;
 	if (!logsChannelOBJ || logsChannelOBJ.type !== ChannelType.GuildText) return;
 
-	const embed = new EmbedBuilder().setColor('Red').setTitle(`${guild.name}'s Logs | User Banned`).setDescription(`\`${user.username}#${user.discriminator}\`(${user.id}) has been banned from the server`).setTimestamp();
+	const embed = new EmbedBuilder()
+		.setColor('Red')
+		.setTitle(`${guild.name}'s Logs | User Banned`)
+		.setDescription(`\`${user.username}\` has been banned from the server`)
+		.setFooter({ text: `UserID: ${user.id}`, iconURL: guild.iconURL({ size: 512 }) ?? '' })
+		.setTimestamp();
 
 	try {
 		await logsChannelOBJ.send({ embeds: [embed] });

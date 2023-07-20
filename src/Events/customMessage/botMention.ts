@@ -5,7 +5,8 @@ import { Event } from '../../Structures/Event';
 function createHelpEmbed(author: Message['author'], guildName?: string | undefined) {
 	return new EmbedBuilder()
 		.setColor('Green')
-		.setDescription(`Hi ${author.username}, how can I help you out today? Leave a brief description of what your issue is, and someone will get to you as soon as they are free. \n\nThis message will self-destruct in 1 minute.`)
+		.setDescription(`Hi ${author.username}, how can I help you out today? Leave a brief description of what your issue is, and someone will get to you as soon as they are free. \n\n
+		This message will self-destruct in 1 minute. You can use the \`/faq\` command for frequently Asked Questions`)
 		.setThumbnail(`${author.displayAvatarURL({ size: 512 })}`)
 		.setFooter({ text: guildName !== undefined ? guildName : '' });
 }
@@ -20,16 +21,12 @@ function createButtonRow() {
 			.setStyle(ButtonStyle.Link)
 			.setURL('https://twitch.tv/canadiendragon')
 			.setLabel('SkullGaming31\'s Twitch'),
-		new ButtonBuilder()
-			.setStyle(ButtonStyle.Link)
-			.setURL('https://discord.com/api/oauth2/authorize?client_id=1024600217653354526&permissions=3704342965494&redirect_uri=https%3A%2F%2Fdiscord.events.stdlib.com%2Fdiscord%2Fauth%2F&response_type=code&scope=identify%20guilds%20guilds.join%20applications.commands%20bot')
-			.setLabel('Invite Me')
 	);
 }
 
 async function handleHelpMessage(message: Message) {
 	const { author, guild, content } = message;
-	const bot = guild?.members.cache.get('1024600217653354526');
+	const bot = guild?.members.cache.get('1130601240871571688');
 
 	if (!guild || author.bot) return;
 

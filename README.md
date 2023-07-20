@@ -147,9 +147,13 @@ Requirements
 ## Roadmap
 
 
-* [ ] link detect and delete(if not in correct channel)
 * [x] Ticket System
 * [ ] Warning System
+* [x] Killfeed
+  * [ ] Connections logged to discord
+  * [x] PVP Kills Logged to discord
+  * [x] PVE Deaths logged to discord
+* [x] auto restart if server crashes
 
 See the [open issues](https://github.com/skullgaming31/DayD/issues) for a full list of proposed features (and known issues).
 

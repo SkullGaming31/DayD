@@ -28,7 +28,7 @@ export default new Event<'messageCreate'>('messageCreate', async (message: Messa
 					.setTitle('Discord Link Detected')
 					.setDescription(`:x: ${author} **Do not post discord links in this server.**`)
 					.setColor('Red')
-					.setAuthor({ name: author.tag, iconURL: author.displayAvatarURL({ size: 512 }) })
+					.setAuthor({ name: author.username, iconURL: author.displayAvatarURL({ size: 512 }) })
 					.setThumbnail(author.displayAvatarURL())
 					.setFooter({ text: `UserID: ${author.id}`, iconURL: author.displayAvatarURL({ size: 512 })} )
 					.setTimestamp();
@@ -66,16 +66,16 @@ export default new Event<'messageCreate'>('messageCreate', async (message: Messa
 				// const forumChannel = guild?.channels.cache.get('1020536302388662303') as ThreadChannel | NewsChannel;// Channel Parent ID for the forums channel
 
 				// if (forumChannel.isThread()) {
-				// 	// Fetch the messages in the channel
+				// Fetch the messages in the channel
 				// 	guild.channels.fetch();
 				// 	const messages = await forumChannel.messages.fetch();
 
-				// 	// Loop through the messages and check for Discord invite links
+				// Loop through the messages and check for Discord invite links
 				// 	messages.forEach(async (message) => {
 				// 		const inviteRegex = /(discord\.(gg|com|io|me|gift)\/.+|discordapp\.com\/invite\/.+)/g;
 				// 		const content = message.content.toLowerCase();
 				// 		if (inviteRegex.test(content)) {
-				// 		// Take the appropriate action if a Discord invite link is found
+				// Take the appropriate action if a Discord invite link is found
 				// 			console.log(`Message ${message.id} contains a Discord invite link`);
 				// 			if (forumChannel.type === ChannelType.PublicThread)
 				// 				await message.delete().catch((err: Error) => { console.error(err.message); });

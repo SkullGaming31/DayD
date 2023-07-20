@@ -16,7 +16,12 @@ export default new Event<'guildBanRemove'>('guildBanRemove', async (ban: GuildBa
 	const logsChannelOBJ = guild.channels.cache.get(logsChannelID) as TextBasedChannel | undefined;
 	if (!logsChannelOBJ || logsChannelOBJ.type !== ChannelType.GuildText) return;
 
-	const embed = new EmbedBuilder().setColor('Red').setTitle('User Banned').setDescription(`\`${user.username}#${user.discriminator}\`(${user.id}) has been removed from the ban list for this server`).setTimestamp();
+	const embed = new EmbedBuilder()
+		.setColor('Green')
+		.setTitle('USER UNBANNED')
+		.setDescription(`\`${user.username}\`(${user.id}) has been removed from the ban list for this server`)
+		.setFooter({ text: `UserID: ${user.id}`, iconURL: guild.iconURL({ size: 512 }) ?? '' })
+		.setTimestamp();
 
 	try {
 		await logsChannelOBJ.send({ embeds: [embed]});

@@ -28,8 +28,8 @@ export default new Event<'messageUpdate'>('messageUpdate', async (oldMessage: Me
 
 	const log = new EmbedBuilder()
 		.setColor('Yellow')
-		.setDescription(`📘 A [message](${newMessage.url} by ${author} was **edited** in ${channel}.\n
-				**Original**:\n ${Original} \n**Edited**: \n ${Edited}`)
+		.setDescription(`📘 A message was updated in ${newMessage.url} by ${author.username} was **edited** in ${channel}.\n
+				**Original**:\n \`${Original}\` \n**Edited**: \n \`${Edited}\``)
 		.setFooter({ text: `Member: ${author?.tag} | ID: ${author?.id}` });
 
 	try {
