@@ -41,6 +41,6 @@ Write clear and concise commit messages
 Use descriptive variable and function names
 Add comments where appropriate
 License
-By contributing to this project, you agree to license your contribution under the MIT License.
+By contributing to this project, you agree to license your contribution under the GPL License.
 
 Thank you for your contribution!
