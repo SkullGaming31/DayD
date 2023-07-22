@@ -1,4 +1,147 @@
 
 
 ******************************************************************************
-AdminLog started on 2023-07-20 at 04:57:33
+AdminLog started on 2023-07-21 at 19:14:44
+19:18:12 | Player "boombox 107" is connected (id=1DAA44F16770347ADA5F205286A0CBA9F3830332)
+19:20:25 | ##### PlayerList log: 1 players
+19:20:25 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6631.7, 9512, 352.1>)
+19:20:25 | #####
+19:25:25 | ##### PlayerList log: 1 players
+19:25:25 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6815.8, 11160, 367.7>)
+19:25:25 | #####
+19:27:27 | Player "boombox 107" (DEAD) (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6912.3, 11338.8, 398.0>) died. Stats> Water: 201.668 Energy: 67.3198 Bleed sources: 0
+19:29:58 | Player "boombox 107"(id=1DAA44F16770347ADA5F205286A0CBA9F3830332) has been disconnected
+20:43:35 | Player "boombox 107" is connected (id=1DAA44F16770347ADA5F205286A0CBA9F3830332)
+20:45:26 | ##### PlayerList log: 1 players
+20:45:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8475.1, 6660.9, 360.3>)
+20:45:26 | #####
+20:50:26 | ##### PlayerList log: 1 players
+20:50:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8382.9, 6568.4, 358.9>)
+20:50:26 | #####
+20:55:26 | ##### PlayerList log: 1 players
+20:55:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8382.9, 6568.4, 358.9>)
+20:55:26 | #####
+21:00:26 | ##### PlayerList log: 1 players
+21:00:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8407.5, 6648.7, 360.1>)
+21:00:26 | #####
+21:00:42 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8436.6, 6660.0, 360.1>)[HP: 98.3125] hit by ZmbM_Jacket_blue into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+21:00:44 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8437.2, 6657.3, 360.1>)[HP: 91.6528] hit by ZmbM_Jacket_blue into Torso(1) for 6.75 damage (MeleeZombieMale)
+21:00:47 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8435.8, 6657.1, 360.1>)[HP: 90.993] hit by ZmbM_Jacket_blue into RightArm(17) for 7.5 damage (MeleeZombieMale)
+21:03:03 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<8258.1, 6861.7, 357.0>)[HP: 91.6536] hit by ZmbM_FarmerFat_Green into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+21:05:26 | ##### PlayerList log: 1 players
+21:05:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<7915.7, 7228.2, 338.9>)
+21:05:26 | #####
+21:10:26 | ##### PlayerList log: 1 players
+21:10:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<7170.7, 7666.2, 297.7>)
+21:10:26 | #####
+21:15:13 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6344.3, 7782.6, 305.0>)[HP: 95.4841] hit by ZmbM_usSoldier_normal_Desert into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+21:15:18 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6359.1, 7799.2, 305.0>)[HP: 94.06] hit by ZmbM_usSoldier_normal_Desert into RightArm(17) for 10 damage (MeleeZombieSoldier)
+21:15:26 | ##### PlayerList log: 1 players
+21:15:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6345.8, 7776.6, 304.9>)
+21:15:26 | #####
+21:15:57 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6295.4, 7851.3, 305.2>)[HP: 89.0615] hit by ZmbM_usSoldier_normal_Desert into LeftLeg(8) for 9 damage (MeleeZombieSoldier)
+21:15:59 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6293.8, 7851.6, 305.2>)[HP: 87.9612] hit by ZmbM_SoldierNormal into RightArm(17) for 10 damage (MeleeZombieSoldier)
+21:15:59 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6293.8, 7851.5, 305.2>)[HP: 86.9612] hit by ZmbM_PatrolNormal_PautRev into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+21:16:00 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6294.7, 7852.2, 305.2>)[HP: 84.6107] hit by ZmbM_SoldierNormal into RightLeg(3) for 9 damage (MeleeZombieSoldier)
+21:16:00 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6294.7, 7852.2, 305.2>)[HP: 83.6107] hit by ZmbM_PatrolNormal_PautRev into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+21:16:00 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6294.6, 7852.3, 305.2>)[HP: 82.6107] hit by ZmbM_usSoldier_normal_Desert into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+21:16:01 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6294.6, 7852.3, 305.2>) is unconscious
+21:16:01 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6294.7, 7852.2, 305.2>)[HP: 73.6002] hit by ZmbM_SoldierNormal into Torso(1) for 9 damage (MeleeZombieSoldier)
+21:16:03 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6294.7, 7852.2, 305.2>)[HP: 72.3985] hit by ZmbM_SoldierNormal into RightArm(17) for 10 damage (MeleeZombieSoldier)
+21:16:54 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6294.6, 7852.3, 305.2>) regained consciousness
+21:17:33 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6292.8, 7849.0, 305.2>)[HP: 62.6206] hit by ZmbM_usSoldier_normal_Woodland into RightLeg(3) for 10 damage (MeleeZombieSoldier)
+21:18:03 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6328.5, 7818.3, 305.7>)[HP: 59.1175] hit by ZmbM_usSoldier_normal_Woodland into RightArm(17) for 10 damage (MeleeZombieSoldier)
+21:18:23 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6362.8, 7799.6, 305.1>)[HP: 56.3961] hit by ZmbM_usSoldier_normal_Woodland into RightArm(17) for 10 damage (MeleeZombieSoldier)
+21:18:43 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6349.0, 7783.0, 305.0>)[HP: 53.6697] hit by ZmbM_PatrolNormal_Summer into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+21:18:47 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6333.3, 7774.1, 306.2>)[HP: 52.3087] hit by ZmbM_PatrolNormal_Summer into RightArm(17) for 10 damage (MeleeZombieSoldier)
+21:20:26 | ##### PlayerList log: 1 players
+21:20:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6332.9, 7774.3, 306.3>)
+21:20:26 | #####
+21:25:26 | ##### PlayerList log: 1 players
+21:25:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6313, 7829.3, 305.1>)
+21:25:26 | #####
+21:29:42 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6046.6, 7851.9, 300.7>)[HP: 57.5422] hit by ZmbM_Jacket_brown into RightLeg(3) for 6.375 damage (MeleeZombieMale)
+21:29:45 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<6052.5, 7864.0, 300.9>)[HP: 55.9917] hit by ZmbM_FarmerFat_Brown into RightLeg(3) for 6.375 damage (MeleeZombieMale)
+21:30:26 | ##### PlayerList log: 1 players
+21:30:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<5946.0, 7965.9, 306.5>)
+21:30:26 | #####
+21:35:26 | ##### PlayerList log: 1 players
+21:35:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<5340.6, 8620.5, 334.0>)
+21:35:26 | #####
+21:38:31 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<5329.4, 9156.8, 342.2>)[HP: 55.6565] hit by ZmbF_JoggerSkinny_Green into LeftArm(18) for 5 damage (MeleeZombie)
+21:38:34 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<5322.4, 9158.9, 342.5>)[HP: 51.0503] hit by ZmbM_JoggerSkinny_Green into Torso(1) for 4.5 damage (MeleeZombie)
+21:38:35 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<5320.6, 9160.7, 342.6>)[HP: 46.4999] hit by ZmbF_JoggerSkinny_Green into Torso(1) for 4.5 damage (MeleeZombie)
+21:40:26 | ##### PlayerList log: 1 players
+21:40:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4815.2, 9512.3, 337.6>)
+21:40:26 | #####
+21:42:14 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4704.9, 9590.3, 339.0>)[HP: 40.4385] hit by ZmbF_JoggerSkinny_Green into RightArm(17) for 5 damage (MeleeZombie)
+21:42:18 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4706.2, 9581.0, 339.0>)[HP: 39.1689] hit by ZmbF_JoggerSkinny_Green into LeftLeg(8) for 4.25 damage (MeleeZombie)
+21:42:45 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4642.1, 9562.3, 339.2>)[HP: 37.2103] hit by ZmbM_PatrolNormal_PautRev into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+21:42:57 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4635.7, 9559.7, 339.5>)[HP: 34.6593] hit by ZmbM_SoldierNormal into RightLeg(3) for 8.5 damage (MeleeZombieSoldier)
+21:45:26 | ##### PlayerList log: 1 players
+21:45:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4617.6, 9554.4, 342.8>)
+21:45:26 | #####
+21:50:26 | ##### PlayerList log: 1 players
+21:50:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4602.3, 9555.2, 339.5>)
+21:50:26 | #####
+21:53:44 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4602.0, 9555.6, 339.5>)[HP: 10.8632] hit by ZmbM_PatrolNormal_PautRev into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+21:53:50 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4602.1, 9553.3, 339.5>)[HP: 8.52561] hit by ZmbM_PatrolNormal_PautRev into LeftLeg(8) for 8.5 damage (MeleeZombieSoldier)
+21:53:53 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4602.3, 9556.8, 339.5>)[HP: 7.41938] hit by ZmbM_PatrolNormal_PautRev into RightArm(17) for 10 damage (MeleeZombieSoldier)
+21:53:54 | Player "boombox 107" (DEAD) (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4602.7, 9557.8, 339.9>)[HP: 0] hit by ZmbM_PatrolNormal_PautRev into Torso(1) for 9 damage (MeleeZombieSoldier)
+21:53:54 | Player "boombox 107" (DEAD) (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<4602.7, 9557.8, 339.9>) killed by ZmbM_PatrolNormal_PautRev
+21:55:26 | ##### PlayerList log: 1 players
+21:55:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<13591.7, 13872.4, 13.4>)
+21:55:26 | #####
+21:55:29 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<13592.7, 13866.1, 13.2>)[HP: 98.875] hit by ZmbF_JoggerSkinny_Red into RightLeg(3) for 4.5 damage (MeleeZombie)
+21:55:31 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<13592.9, 13865.8, 13.2>)[HP: 98.4651] hit by ZmbF_JoggerSkinny_Red into RightArm(17) for 5 damage (MeleeZombie)
+21:56:37 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<13604.8, 13755.3, 5.7>)[HP: 97.75] hit by ZmbM_PatrolNormal_Flat into RightLeg(3) for 9 damage (MeleeZombieSoldier)
+21:56:40 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<13604.1, 13764.6, 6.4>)[HP: 87.8403] hit by ZmbM_SoldierNormal into Torso(1) for 10 damage (MeleeZombieSoldier)
+22:00:13 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<12409, 14317.9, 23.3>)[HP: 93.2421] hit by ZmbM_SoldierNormal into LeftArm(18) for 10 damage (MeleeZombieSoldier)
+22:00:26 | ##### PlayerList log: 1 players
+22:00:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<12404.1, 14321.6, 26.0>)
+22:00:26 | #####
+22:00:39 | Player "boombox 107"(id=1DAA44F16770347ADA5F205286A0CBA9F3830332) has been disconnected
+22:27:46 | Player "Rokout Bando" is connected (id=EF9480A5AF74CD58D3E40842CEE40E0D96E059A6)
+22:27:47 | Player "Rokout Bando"(id=EF9480A5AF74CD58D3E40842CEE40E0D96E059A6) has been disconnected
+22:55:17 | Player "boombox 107" is connected (id=1DAA44F16770347ADA5F205286A0CBA9F3830332)
+23:00:26 | ##### PlayerList log: 1 players
+23:00:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.4, 42.8>)
+23:00:26 | #####
+23:00:29 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.7, 42.8>)[HP: 97.5408] hit by ZmbM_MechanicSkinny_Grey into RightLeg(3) for 6.375 damage (MeleeZombieMale)
+23:00:30 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.7, 42.8>)[HP: 95.947] hit by ZmbF_BlueCollarFat_Red into LeftLeg(8) for 6.375 damage (MeleeZombieFemale)
+23:00:30 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.7, 42.8>)[HP: 95.197] hit by ZmbM_MechanicSkinny_Grey into LeftArm(18) for 7.5 damage (MeleeZombieMale)
+23:00:31 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.7, 42.8>)[HP: 94.447] hit by ZmbM_MechanicSkinny_Blue into LeftArm(18) for 7.5 damage (MeleeZombieMale)
+23:00:32 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.7, 42.8>)[HP: 92.9434] hit by ZmbF_BlueCollarFat_Red into RightLeg(3) for 6.375 damage (MeleeZombieFemale)
+23:00:32 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.7, 42.8>)[HP: 86.1934] hit by ZmbM_MechanicSkinny_Grey into Torso(1) for 6.75 damage (MeleeZombieMale)
+23:00:32 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.1, 14388.7, 42.8>)[HP: 85.4434] hit by ZmbM_MechanicSkinny_Blue into RightArm(17) for 7.5 damage (MeleeZombieMale)
+23:00:35 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688, 14390.6, 42.8>) is unconscious
+23:00:35 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.2, 14390.2, 42.8>)[HP: 78.7815] hit by ZmbF_BlueCollarFat_Red into Torso(1) for 6.75 damage (MeleeZombieFemale)
+23:00:35 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.3, 14390.6, 42.8>)[HP: 72.0315] hit by ZmbM_MechanicSkinny_Grey into Torso(1) for 6.75 damage (MeleeZombieMale)
+23:00:37 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.5, 14391, 42.8>)[HP: 71.2815] hit by ZmbM_MechanicSkinny_Grey into RightArm(17) for 7.5 damage (MeleeZombieMale)
+23:01:28 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11688.7, 14393.6, 42.8>) regained consciousness
+23:02:51 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11484.6, 14493.6, 46.6>)[HP: 71.9084] hit by ZmbM_CommercialPilotOld_Olive into RightLeg(3) for 6.375 damage (MeleeZombieMale)
+23:02:52 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11484.4, 14493.1, 46.6>)[HP: 70.2142] hit by ZmbM_CommercialPilotOld_Olive into RightLeg(3) for 6.375 damage (MeleeZombieMale)
+23:02:54 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11485.1, 14493.5, 46.6>)[HP: 69.4513] hit by ZmbM_JournalistSkinny into RightArm(17) for 7.5 damage (MeleeZombieMale)
+23:02:58 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11471.7, 14497.1, 46.7>)[HP: 62.5369] hit by ZmbM_CommercialPilotOld_Olive into Torso(1) for 6.75 damage (MeleeZombieMale)
+23:02:59 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11471.7, 14497.1, 46.7>)[HP: 60.8927] hit by ZmbM_JournalistSkinny into LeftLeg(8) for 6.375 damage (MeleeZombieMale)
+23:03:00 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11471.7, 14497.1, 46.7>)[HP: 59.2845] hit by ZmbM_CommercialPilotOld_Olive into LeftLeg(8) for 6.375 damage (MeleeZombieMale)
+23:03:01 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11471.7, 14497.1, 46.7>)[HP: 58.484] hit by ZmbM_JournalistSkinny into RightArm(17) for 7.5 damage (MeleeZombieMale)
+23:03:01 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11471.7, 14497.2, 46.7>) is unconscious
+23:03:07 | Player "boombox 107" (DEAD) (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<11472.4, 14499.3, 46.7>) died. Stats> Water: 322.268 Energy: 294.914 Bleed sources: 2
+23:04:08 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1696.9, 2186.8, 6.0>)[HP: 99.25] hit by ZmbM_Jacket_greenchecks into RightArm(17) for 7.5 damage (MeleeZombieMale)
+23:04:15 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1697.0, 2187.3, 6.0>)[HP: 97.743] hit by ZmbM_Jacket_black into LeftLeg(8) for 6.75 damage (MeleeZombieMale)
+23:04:17 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1697.9, 2188.1, 6.0>)[HP: 96.1458] hit by ZmbM_Jacket_black into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+23:04:19 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1698.2, 2187.9, 6.0>)[HP: 95.486] hit by ZmbM_Jacket_black into RightArm(17) for 7.5 damage (MeleeZombieMale)
+23:04:19 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1698.2, 2187.9, 6.0>)[HP: 93.7985] hit by ZmbM_Jacket_khaki into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+23:04:22 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.0, 2187.8, 6.0>)[HP: 86.3888] hit by ZmbM_Jacket_black into Torso(1) for 7.5 damage (MeleeZombieMale)
+23:04:23 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.2, 2188, 6.0>)[HP: 78.8888] hit by ZmbM_Jacket_khaki into Torso(1) for 7.5 damage (MeleeZombieMale)
+23:04:24 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.4, 2189.0, 6.1>)[HP: 78.8888] hit by ZmbM_Jacket_khaki into RightArm(17) for 0 damage (Dummy_Light)
+23:04:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.7, 2189.0, 6.1>)[HP: 78.2289] hit by ZmbM_Jacket_khaki into LeftArm(18) for 7.5 damage (MeleeZombieMale)
+23:04:28 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.6, 2188.8, 6.1>)[HP: 76.5414] hit by ZmbM_Jacket_khaki into RightLeg(3) for 6.75 damage (MeleeZombieMale)
+23:04:28 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.6, 2188.8, 6.1>) is unconscious
+23:04:29 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.5, 2189.6, 6.1>)[HP: 75.8815] hit by ZmbM_Jacket_khaki into RightArm(17) for 7.5 damage (MeleeZombieMale)
+23:04:31 | Player "boombox 107" (DEAD) (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<1699.6, 2189.8, 6.1>) died. Stats> Water: 568.833 Energy: 552.071 Bleed sources: 0
+23:05:26 | ##### PlayerList log: 1 players
+23:05:26 | Player "boombox 107" (id=1DAA44F16770347ADA5F205286A0CBA9F3830332 pos=<3475.0, 3791.9, 173.4>)
+23:05:26 | #####
+23:06:13 | Player "boombox 107"(id=1DAA44F16770347ADA5F205286A0CBA9F3830332) has been disconnected

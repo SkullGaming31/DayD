@@ -1,5 +1,5 @@
 /* eslint-disable no-inner-declarations */
-import { ApplicationCommandOptionType, ApplicationCommandType, AttachmentBuilder, ChannelType, EmbedBuilder, hyperlink } from 'discord.js';
+import { ApplicationCommandOptionType, ApplicationCommandType, AttachmentBuilder, ChannelType, EmbedBuilder } from 'discord.js';
 import { config } from 'dotenv';
 import { Command } from '../../Structures/Command';
 config();
@@ -168,28 +168,46 @@ export default new Command({
 				interaction.channel?.send({ content: '....' }).catch((error) => {console.log(error);});
 				const kfChannel = interaction.guild?.channels.cache.find(channel => channel.name.includes(process.env.KILLFEED_NAME as string));
 				if (kfChannel == null) {
-					interaction.guild?.channels.create({
-						parent: process.env.KILLFEED_PARENT_CHANNEL_ID,
-						name: process.env.KILLFEED_NAME as string,
+					const cateogry = await interaction.guild?.channels.create({ 
+						type: ChannelType.GuildCategory,
+						name: `${process.env.SERVER_NAME} killfeed`,
+						reason: 'creating cateogry for killfeed channels',
 						permissionOverwrites: [
 							{
 								id: interaction.guild.roles.everyone,
-								allow: ['ViewChannel', 'SendMessages', 'ReadMessageHistory'],
+								allow: ['ViewChannel', 'ReadMessageHistory'],
+								deny: ['Administrator']
+							},
+							{
+								id: '1130601240871571688',
+								allow: ['ViewChannel', 'ReadMessageHistory', 'AttachFiles', 'EmbedLinks', 'AddReactions'],
 								deny: ['Administrator']
 							}
 						]
+					});
+					interaction.guild?.channels.create({
+						parent: cateogry?.id,
+						type: ChannelType.GuildText,
+						name: process.env.KILLFEED_NAME as string,
+						// permissionOverwrites: [
+						// 	{
+						// 		id: interaction.guild.roles.everyone,
+						// 		allow: ['ViewChannel', 'ReadMessageHistory'],
+						// 		deny: ['Administrator']
+						// 	},
+						// 	{
+						// 		id: '1130601240871571688',
+						// 		allow: ['ViewChannel', 'ReadMessageHistory', 'AttachFiles', 'EmbedLinks', 'AddReactions'],
+						// 		deny: ['Administrator']
+						// 	}
+						// ]
 					}).catch(err => { console.error(err); });
-					interaction.channel?.send('Killfeed Channel Created Successfully!')
-						.catch(err => { console.error(err); });
+					interaction.reply({ content: 'Killfeed Channel Created Successfully!', ephemeral: true }).catch(err => { console.error(err); });
 				}else{
-					await interaction.channel?.send({ content: 'Skipped Creating Killfeed Channel!' })
-						.catch((error) => {
-							console.log(error);
-						});
-					console.log(`${kfChannel}`);
+					await interaction.reply({ content: 'Skipped Creating Killfeed Channel!', ephemeral: true }).catch((error) => { console.log(error); });
 				}
 				setTimeout((async () => {
-					if (interaction.channel?.type === ChannelType.GuildText) await interaction.channel?.bulkDelete(2).catch((error: Error) => { console.error(error); });
+					if (interaction.channel?.type === ChannelType.GuildText) await interaction.channel?.bulkDelete(2).catch((error) => { console.error(error); });
 				}), 5000);
 				await interaction.reply({ content: '...' }).catch((error) => {console.error(error);});
 				await interaction.deleteReply().catch((error) => { console.error(error); });
@@ -200,10 +218,8 @@ export default new Command({
 			const guildId = interaction.guildId;
 			if(guildId) {
 				if (guildId != GUILDID) return;
-				if (feedStart != true) return interaction.reply({ content: 'THE KILLFEED IS NOT CURRENTLY RUNNING!.....', ephemeral: true })
-					.catch((error) => { console.error(error); });
-				await interaction.reply({ content: 'Terminating Project.....)', ephemeral: true })
-					.catch((error) => { console.error(error); });
+				if (feedStart != true) return interaction.reply({ content: 'THE KILLFEED IS NOT CURRENTLY RUNNING!.....', ephemeral: true }).catch((error) => { console.error(error); });
+				await interaction.reply({ content: 'Terminating Project.....)', ephemeral: true }).catch((error) => { console.error(error); });
 				setTimeout((() => { return process.exit(22); }), 5000);
 			}
 		}
@@ -259,18 +275,17 @@ export default new Command({
 								console.log(`This is the current date: ${todayRef}`);
 							}
 						
-							if (line.includes(phrase1, 0) || line.includes(phrase4, 0) || line.includes(phrase5, 0) || line.includes(phrase6, 0) || line.includes(phrase7, 0)) {
+							if (line.includes(phrase1, 0) || line.includes(phrase4, 0) || line.includes(phrase5, 0) || line.includes(phrase6, 0) || line.includes(phrase7, 0) || line.includes(phrase8, 0) || line.includes(phrase9, 0)) {
 								const vRef = line;
 								if (valueRef.has(`${vRef}`)) {
 									return;
 								}else {
 									valueRef.add(vRef);
 									iso = line.split(/[|"'<>()]/);
-									// console.log(iso);
+									console.log('iso is: ', iso);
 									if(iso) {
 									//Handle Killfeed Data
 										const methodVal = iso[iso.length - 1];
-									
 										if (iso[15]){
 										//Check for range of kill in message
 											if (methodVal.includes(phrase3)) {
@@ -288,28 +303,22 @@ export default new Command({
 												dt0 = Date.now();
 												//Send Killfeed Notifications
 												if (config.showLoc === 1) {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
 														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.addFields({ name: '🌐', value: `${linkLoc+Vloc}`})
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+														.addFields({ name: '🌐', value: `${linkLoc+Vloc}`});
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}else {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
-														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3}`);
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}
@@ -328,29 +337,23 @@ export default new Command({
 												dt0 = Date.now();
 												//Send Killfeed Notifications To Discord
 												if (config.showLoc === 1) {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
 														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.addFields({  name: '🌐', value: `${linkLoc+Vloc}`})
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` })
-														.setURL(link);
+														.addFields({  name: '🌐', value: `${linkLoc+Vloc}`});
+
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}else {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
-														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3}`);
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}
@@ -370,9 +373,7 @@ export default new Command({
 											// .setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
 											// const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											// if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
-											// .catch(function (error) {
-											// 	console.log(error);
-											// });
+											// .catch((error) => { console.log(error); });
 											console.log(`Kill Time-Stamp: ${dt} NPC KILL`);
 										}else if (iso[9] && iso[9].includes('bled out')) {
 											const f0 = iso[0].toString();
@@ -380,15 +381,28 @@ export default new Command({
 											const f2 = iso[9].toString();
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.addFields([
+													{
+														name: 'Death Time',
+														value: `\`${f0}\``,
+														inline: true
+													},
+													{
+														name: 'User',
+														value: `\`${f1}\``,
+														inline: true
+													},
+													{
+														name: 'Action',
+														value: `\`${f2}\``,
+														inline: true
+													}
+												]);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 										}else if (iso[9] && iso[9].includes('hit by FallDamage')) {
@@ -397,15 +411,13 @@ export default new Command({
 											const f2 = 'fell to their death';
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** ${f2}`);
+
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 										}else if (iso[7] && iso[7].includes('suicide')) {
@@ -414,15 +426,12 @@ export default new Command({
 											const f2 = iso[7].toString();
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** ${f2}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 										}
@@ -434,47 +443,72 @@ export default new Command({
 											const f2 = methodVal;
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${methodVal}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** ${methodVal}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 										}else if (line.includes(phrase8, 0)) {
-											const playerName = iso[0].toString();
+											const playerName = iso[2].toString();
+											const dt0 = iso[0].toString();
+											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const joinEmbed = new EmbedBuilder()
 												.setColor('Blue')
-												.setTitle(`${process.env.SERVER_NAME} Player Joined`)
-												.setDescription(`**${playerName} joined the server**`);
+												.setTitle(`${process.env.SERVER_NAME} | Player Joined`)
+												.setThumbnail('attachment://crown.png')
+												.addFields([
+													{
+														name: 'Joined',
+														value: `${dt0}`,
+														inline: false
+													},
+													{
+														name: 'Player',
+														value: `\`${playerName}\``,
+														inline: true
+													},
+													{
+														name: 'Action',
+														value: 'Connected',
+														inline: true
+													}
+												]);
 
-											dt0 = Date.now();
 											// Send the player join embed to the killfeed channel
 											const kfChannel = interaction.guild?.channels.cache.get(kfChannel1);
-											if (kfChannel?.isTextBased()) {
-												await kfChannel.send({ embeds: [joinEmbed] }).catch((err) => {
-													console.error(err);
-												});
-											}
+											if (kfChannel?.isTextBased()) { await kfChannel.send({ embeds: [joinEmbed], files: [attachment] }).catch((err) => { console.error(err); }); }
 										} else if (line.includes(phrase9, 0)) {
-											const playerName = iso[0].toString();
+											const playerName = iso[2].toString();
+											const dt0 = iso[0];
+											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const disconnectEmbed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Player Disconnected`)
-												.setDescription(`**${playerName} disconnected from the server**`);
+												.setThumbnail('attachment://crown.png')
+												.addFields([
+													{
+														name: 'Left Server',
+														value: `${dt0}`,
+														inline: false
+													},
+													{
+														name: 'Player',
+														value: `\`${playerName}\``,
+														inline: true
+													},
+													{
+														name: 'Action',
+														value: 'Disconnected',
+														inline: true
+													}
+												]);
 
-											dt0 = Date.now();
 											// Send the player disconnect embed to the killfeed channel
 											const kfChannel = interaction.guild?.channels.cache.get(kfChannel1);
-											if (kfChannel?.isTextBased()) {
-												await kfChannel.send({ embeds: [disconnectEmbed] }).catch((err) => {
-													console.error(err);
-												});
-											}
+											if (kfChannel?.isTextBased()) await kfChannel.send({ embeds: [disconnectEmbed], files: [attachment] }).catch((err) => { console.error(err); });
 										}
 										else {
 											const f0 = iso[0].toString();
@@ -482,15 +516,12 @@ export default new Command({
 											const f2 = iso[9].toString();
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
-												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
+												.setTitle(`${process.env.SERVER_NAME} | Killfeed Notification!`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** was ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** was ${f2}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 										}
@@ -499,9 +530,7 @@ export default new Command({
 							}
 						});
 					
-						tail.on('error', (err: Error) => {
-							console.log(err);  
-						});
+						tail.on('error', (err) => { console.error(err); });
 					
 						setInterval(async () => {
 							if (parseInt(config.mapLoc) === 1) {
