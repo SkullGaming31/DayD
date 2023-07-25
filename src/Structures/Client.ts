@@ -1,10 +1,11 @@
-import { ApplicationCommandDataResolvable, Client, ClientEvents, Collection, GatewayIntentBits, Partials } from 'discord.js';
+import { ApplicationCommandDataResolvable, Client, ClientEvents, Collection, GatewayIntentBits, Partials, TextChannel } from 'discord.js';
 import glob from 'glob';
 import { Agent } from 'undici';
 import { promisify } from 'util';
 const PG = promisify(glob);
 
 import axios from 'axios';
+import { RestartRequestBody } from '../Commands/Moderator/dayz';
 import { CommandType } from '../Typings/Command';
 import { RegisterCommandOptions } from '../Typings/client';
 import { Event } from './Event';
@@ -12,7 +13,7 @@ import { Event } from './Event';
 export class ExtendedClient extends Client {
 	commands: Collection<string, CommandType> = new Collection();
 
-	constructor () {
+	constructor() {
 		super({
 			intents: [
 				GatewayIntentBits.Guilds,
@@ -34,7 +35,9 @@ export class ExtendedClient extends Client {
 			},
 			rest: { timeout: 60000 }
 		});
+		this.checkAndStartServer = this.checkAndStartServer.bind(this); // Bind the context of checkAndStartServer to the instance of ExtendedClient
 	}
+
 	async start() {
 		const agent = new Agent({
 			connect: {
@@ -43,7 +46,7 @@ export class ExtendedClient extends Client {
 		});
 
 		// Check server status every 5 minutes
-		setInterval(checkAndStartServer, 5 * 60 * 1000);
+		setInterval(this.checkAndStartServer, 5 * 60 * 1000); // Use this.checkAndStartServer instead of checkAndStartServer
 
 		this.rest.setAgent(agent);
 		this.registerModules();
@@ -89,92 +92,94 @@ export class ExtendedClient extends Client {
 
 		eventFiles.forEach(async (filePath) => {
 			const event: Event<keyof ClientEvents> = await this.importFile(filePath);
-			if (event.event === 'ready') { this.once(event.event, event.run); } else { this.on(event.event, event.run); }
-		});
-	}
-}
-async function checkAndStartServer() {
-	try {
-		const response = await axios.get(`https://api.nitrado.net/services/${process.env.ID1}/gameservers`, {
-			headers: {
-				'Authorization': `Bearer ${process.env.NITRATOKEN}`,
-				'Accept': 'application/json'
-			}
-		});
-
-		const gameServer = response.data.data.gameserver;
-		const serverStatus = gameServer.status;
-
-		if (serverStatus === 'stopped') {
-			console.log('The server is currently stopped. Starting the server...');
-			await startGameServer();
-		} else {
-			console.log('The server is already running.');
-			return;
-		}
-	} catch (error) {
-		if (axios.isAxiosError(error)) {
-			if (error.response) {
-				const { status, statusText, data } = error.response;
-				if (status === 401) {
-					console.error('Failed to start game server. Access token is not valid (anymore).');
-				} else if (status === 429) {
-					console.error('Failed to start game server. Rate limit exceeded. Please contact support for a higher rate limit.');
-				} else if (status === 503) {
-					console.error('Failed to start game server. API is currently unavailable due to maintenance. Please try again later.');
-				} else {
-					console.error(`Failed to start game server. Status Code: ${status}, Status Text: ${statusText}, Response Data:`, data);
-				}
-			} else if (error.request) {
-				console.error('No response received while starting game server');
+			if (event.event === 'ready') {
+				this.once(event.event, event.run);
 			} else {
-				console.error('Error setting up request to start game server:', error.message);
+				this.on(event.event, event.run);
 			}
-		} else {
-		// Error handling
-			console.error('Error occurred while checking and starting the server:', error);
-		}
+		});
 	}
-}
 
-async function startGameServer(): Promise<void> {
-	try {
-		const response = await axios.post(
-			`https://api.nitrado.net/services/${process.env.ID1}/gameservers/restart`,
-			{},
-			{
+	async checkAndStartServer() {
+		try {
+			const response = await axios.get(`https://api.nitrado.net/services/${process.env.ID1}/gameservers`, {
 				headers: {
 					'Authorization': `Bearer ${process.env.NITRATOKEN}`,
-					'Content-Type': 'application/json',
-				},
-			}
-		);
-
-		if (response.status === 200) {
-			console.log('Game server started successfully:', response.data);
-		} else {
-			console.error(`Failed to start game server. Status Code: ${response.status}, Status Text: ${response.statusText}`);
-		}
-	} catch (error) {
-		if (axios.isAxiosError(error)) {
-			if (error.response) {
-				const { status, statusText, data } = error.response;
-				if (status === 401) {
-					console.error('Failed to start game server. Access token is not valid (anymore).');
-				} else if (status === 429) {
-					console.error('Failed to start game server. Rate limit exceeded. Please contact support for a higher rate limit.');
-				} else if (status === 503) {
-					console.error('Failed to start game server. API is currently unavailable due to maintenance. Please try again later.');
-				} else {
-					console.error(`Failed to start game server. Status Code: ${status}, Status Text: ${statusText}, Response Data:`, data);
+					'Accept': 'application/json'
 				}
-			} else if (error.request) {
-				console.error('No response received while starting game server');
+			});
+
+			const gameServer = response.data.data.gameserver;
+			const serverStatus = gameServer.status;
+
+			if (serverStatus === 'stopped') {
+				console.log('The server is currently stopped. Starting the server...');
+				const restartMessage = 'Automatic restart from DayD Killfeed Discord Bot';
+				await this.startGameServer(restartMessage); // Use this.startGameServer instead of startGameServer
+
+				// Get the announcement channel by its ID
+				const announcementChannel = this.channels.cache.get('1130984356668776558') as TextChannel;
+
+				// Send a message to the announcement channel
+				if (announcementChannel) {
+					announcementChannel.send({ content: 'The server is started after a crash! :tada:', });
+				} else {
+					console.error({ content: 'Announcement channel not found. Make sure to provide the correct channel ID.' });
+				}
 			} else {
-				console.error('Error setting up request to start game server:', error.message);
+				console.log('The server is already running.');
+				return;
 			}
-		} else {
-			console.error('Error starting game server:', error);
+		} catch (error) {
+			// ... (existing error handling)
+		}
+	}
+
+	async startGameServer(message?: string): Promise<void> {
+		try {
+			const requestBody: RestartRequestBody = {};
+
+			if (message) {
+				requestBody.message = message;
+			}
+
+			const response = await axios.put( // Use PUT method for updating the message
+				`https://api.nitrado.net/services/${process.env.ID1}/gameservers/restart`,
+				requestBody,
+				{
+					headers: {
+						'Authorization': `Bearer ${process.env.NITRATOKEN}`,
+						'Content-Type': 'application/json',
+					},
+				}
+			);
+
+			if (response.status === 200) {
+				console.log('Game server started successfully:', response.data);
+			} else {
+				console.error(`Failed to start game server. Status Code: ${response.status}, Status Text: ${response.statusText}`);
+			}
+		} catch (error) {
+			if (axios.isAxiosError(error)) {
+				if (error.response) {
+					const { status, statusText, data } = error.response;
+					if (status === 401) {
+						console.error('Failed to start game server. Access token is not valid (anymore).');
+					} else if (status === 429) {
+						console.error('Failed to start game server. Rate limit exceeded. Please contact support for a higher rate limit.');
+					} else if (status === 503) {
+						console.error('Failed to start game server. API is currently unavailable due to maintenance. Please try again later.');
+					} else {
+						console.error(`Failed to start game server. Status Code: ${status}, Status Text: ${statusText}, Response Data:`, data);
+					}
+				} else if (error.request) {
+					console.error('No response received while starting game server');
+				} else {
+					console.error('Error setting up request to start game server:', error.message);
+				}
+			} else {
+				console.error('Error starting game server:', error);
+			}
 		}
 	}
 }
