@@ -1,5 +1,5 @@
 /* eslint-disable no-inner-declarations */
-import { ApplicationCommandOptionType, ApplicationCommandType, AttachmentBuilder, CategoryChannel, ChannelType, EmbedBuilder, GuildMember, channelMention, hyperlink } from 'discord.js';
+import { ApplicationCommandOptionType, ApplicationCommandType, AttachmentBuilder, CategoryChannel, ChannelType, EmbedBuilder, GuildMember, TextBasedChannel, channelMention } from 'discord.js';
 import { config } from 'dotenv';
 import { Command } from '../../Structures/Command';
 config();
@@ -164,7 +164,7 @@ export default new Command({
 				if (parseInt(config.mapLoc) === 1) {
 					config.mapLoc = '0';
 					fs.writeFileSync('./src/config.ini', ini.stringify(config));
-					await interaction.reply({ content: 'Killfeed Map set to **Chernaus**', ephemeral: true }).catch((error) => { console.log(error); });
+					await interaction.reply({ content: 'Killfeed Map set to **Chernaus**', ephemeral: true }).catch((error) => { console.error(error); });
 					return;
 				}
 				if (parseInt(config.mapLoc) === 0) {
@@ -175,7 +175,6 @@ export default new Command({
 				}
 			}
 		}
-
 		if (subCo === 'setup') {
 			const botID = interaction.guild?.members.cache.get('1130601240871571688') as GuildMember;
 			if (guildId) {
@@ -274,19 +273,19 @@ export default new Command({
 				const choice = interaction.options.getString('state');
 				if (feedStart !== true) {
 					return interaction.reply({ content: 'THE KILLFEED IS NOT CURRENTLY RUNNING!.....', ephemeral: true })
-						.catch((error) => { console.log(error); });
+						.catch((error) => { console.error(error); });
 				}
 				if (choice === 'on') {
 					config.showLoc = 1;
 					fs.writeFileSync('./src/config.ini', ini.stringify(config));
 					interaction.reply({ content: 'Death Locations **Enabled!**', ephemeral: true })
-						.catch((error) => { console.log(error); });
+						.catch((error) => { console.error(error); });
 					return;
 				} else if (choice === 'off') {
 					config.showLoc = 0;
 					fs.writeFileSync('./src/config.ini', ini.stringify(config));
 					interaction.reply({ content: 'Death Locations **Disabled!**', ephemeral: true })
-						.catch((error) => { console.log(error); });
+						.catch((error) => { console.error(error); });
 					return;
 				}
 			}
@@ -302,7 +301,7 @@ export default new Command({
 					if (feedStart) return interaction.reply({ content: 'THE KILLFEED IS ALREADY RUNNING!.....TRY RESETING IF YOU NEED TO RESTART', ephemeral: true })
 						.catch((error) => { console.error(error); });
 					console.log('...working');
-					await interaction.reply({ content: '**Starting Killfeed....**', ephemeral: true }).catch((error) => { console.log(error); });
+					await interaction.reply({ content: '**Starting Killfeed....**', ephemeral: true }).catch((error) => { console.error(error); });
 					feedStart = true;
 					await getDetails().catch((error) => {console.error(error);});
 
@@ -317,8 +316,7 @@ export default new Command({
 								console.log(`This is the logDate: ${logDt}`);
 								console.log(`This is the current date: ${todayRef}`);
 							}
-						
-							if (line.includes(phrase1, 0) || line.includes(phrase4, 0) || line.includes(phrase5, 0) || line.includes(phrase6, 0) || line.includes(phrase7, 0)) {
+							if (line.includes(phrase1, 0) || line.includes(phrase4, 0) || line.includes(phrase5, 0) || line.includes(phrase6, 0) || line.includes(phrase7, 0) || line.includes('Player is connected') || line.includes('has been disconnected')) {
 								const vRef = line;
 								if (valueRef.has(`${vRef}`)) {
 									return;
@@ -329,7 +327,6 @@ export default new Command({
 									if(iso) {
 									//Handle Killfeed Data
 										const methodVal = iso[iso.length - 1];
-									
 										if (iso[15]){
 										//Check for range of kill in message
 											if (methodVal.includes(phrase3)) {
@@ -347,32 +344,25 @@ export default new Command({
 												dt0 = Date.now();
 												//Send Killfeed Notifications
 												if (config.showLoc === 1) {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
 														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.addFields({ name: '🌐', value: `${linkLoc+Vloc}`})
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+														.addFields({ name: '🌐', value: `${linkLoc+Vloc}`});
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}else {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
-														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3}`);
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}
-											
 											}else {
 												const f5 = iso[7].toString();
 												const f6 = iso[13].toString();
@@ -387,34 +377,27 @@ export default new Command({
 												dt0 = Date.now();
 												//Send Killfeed Notifications To Discord
 												if (config.showLoc === 1) {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
 														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.addFields({  name: '🌐', value: `${linkLoc+Vloc}`})
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` })
-														.setURL(link);
+														.addFields({  name: '🌐', value: `${linkLoc+Vloc}`});
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}else {
-													const url = 'https://thecodegang.com';
-													const link = hyperlink('Sign-up for DayZero', url);
 													const attachment = new AttachmentBuilder('./assets/images/crown.png');
 													const embed = new EmbedBuilder()
 														.setColor('Blue')
 														.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 														.setThumbnail('attachment://crown.png')
-														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-														.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+														.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `);
 													const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 													if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 												}
 											}
-										}else if (iso[13] && !iso[15]) {
+										} else if (iso[13] && !iso[15]) {
 											const f0 = iso[0].toString();
 											const f1 = iso[8].toString();
 											const f2 = iso[2].toString();
@@ -430,142 +413,128 @@ export default new Command({
 											// const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											// if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 											// .catch(function (error) {
-											// 	console.log(error);
+											// 	console.error(error);
 											// });
 											console.log(`Kill Time-Stamp: ${dt} NPC KILL`);
-										}else if (iso[9] && iso[9].includes('bled out')) {
+										} else if (iso[9] && iso[9].includes('bled out')) {
 											const f0 = iso[0].toString();
 											const f1 = iso[2].toString();
 											const f2 = iso[9].toString();
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
-											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
+												.setDescription(`${f0} **${f1}** ${f2}`);
+											const tbd = interaction.guild?.channels.cache.get(kfChannel1) as TextBasedChannel;
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
-										}else if (iso[9] && iso[9].includes('hit by FallDamage')) {
+										} else if (iso[3] && iso[3].includes('Player is connected')) {
+											const playerName = iso[2];
+											const connectionTime = iso[0];
+											// Send Player Connection Notification to Discord
+											const embed = new EmbedBuilder()
+												.setColor('Green')
+												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
+												.addFields([
+													{
+														name: 'Connection: ',
+														value: connectionTime,
+														inline: false
+													},
+													{
+														name: 'Gamertag: ',
+														value: playerName,
+														inline: false
+													}
+												])
+												// .setDescription(`**${playerName}** has connected at ${connectionTime}`)
+												.setTimestamp();
+											const tbd = interaction.guild?.channels.cache.get(kfChannel1) as TextBasedChannel;
+											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed] }).catch((err: Error) => { console.error(err); });
+										} else if (iso[5] && iso[5].includes('has been disconnected')) {
+											const playerName = iso[2];
+											const disconnectionTime = iso[0];
+
+											// Send Player Disconnection Notification to Discord
+											const embed = new EmbedBuilder()
+												.setColor('Green')
+												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
+												.addFields([
+													{
+														name: 'disconnection: ',
+														value: disconnectionTime,
+														inline: false
+													},
+													{
+														name: 'Gamertag: ',
+														value: playerName,
+														inline: false
+													}
+												])
+												// .setDescription(`**${playerName}** has disconnected at ${disconnectionTime}`)
+												.setTimestamp();
+											const tbd = interaction.guild?.channels.cache.get(kfChannel1) as TextBasedChannel;
+											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed] }).catch((err: Error) => { console.error(err); });
+										}
+										else if (iso[9] && iso[9].includes('hit by FallDamage')) {
 											const f0 = iso[0].toString();
 											const f1 = iso[2].toString();
 											const f2 = 'fell to their death';
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** ${f2}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
-										}else if (iso[7] && iso[7].includes('suicide')) {
+										} else if (iso[7] && iso[7].includes('suicide')) {
 											const f0 = iso[0].toString();
 											const f1 = iso[2].toString();
 											const f2 = iso[7].toString();
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** ${f2}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
-										}
-										else if (iso[7] && !iso[9]) {
+										} else if (iso[7] && !iso[9]) {
 											console.log('Stupid NPC\'s!');
-										}else if (iso[5] && !iso[6]) {//committed suicide
+										} else if (iso[5] && !iso[6]) {//committed suicide
 											const f0 = iso[0].toString();
 											const f1 = iso[2].toString();
 											const f2 = methodVal;
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** ${methodVal}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** ${f2}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 										}
-										// else if (line.includes(phrase8, 0)) {
-										// 	const playerName = iso[2].toString();
-										// 	dt0 = Date.now();
-										// 	const joinEmbed = new EmbedBuilder()
-										// 		.setColor('Blue')
-										// 		.setTitle(`${process.env.SERVER_NAME} Player Joined`)
-										// 		.addFields([
-										// 			{
-										// 				name: 'Connected',
-										// 				value: `${dt0}`,
-										// 				inline: false
-										// 			},
-										// 			{
-										// 				name: 'gamertag',
-										// 				value: `${playerName}`,
-										// 				inline: true
-										// 			},
-										// 			{
-										// 				name: 'action',
-										// 				value: 'Connected',
-										// 				inline: true
-										// 			}
-										// 		]);
-										// Send the player join embed to the killfeed channel
-										// 	const kfChannel = interaction.guild?.channels.cache.get(kfChannel1);
-										// 	if (kfChannel?.isTextBased()) {
-										// 		await kfChannel.send({ embeds: [joinEmbed] }).catch((err) => {
-										// 			console.error(err);
-										// 		});
-										// 	}
-										// } else if (line.includes(phrase9, 0)) {
-										// 	const playerName = iso[2].toString();
-										// 	const disconnectEmbed = new EmbedBuilder()
-										// 		.setColor('Blue')
-										// 		.setTitle(`${process.env.SERVER_NAME} Player Disconnected`)
-										// 		.setDescription(`**${playerName} disconnected from the server**`);
-
-										// 	dt0 = Date.now();
-										// Send the player disconnect embed to the killfeed channel
-										// 	const kfChannel = interaction.guild?.channels.cache.get(kfChannel1);
-										// 	if (kfChannel?.isTextBased()) {
-										// 		await kfChannel.send({ embeds: [disconnectEmbed] }).catch((err) => {
-										// 			console.error(err);
-										// 		});
-										// 	}
-										// }
 										else {
 											const f0 = iso[0].toString();
 											const f1 = iso[2].toString();
 											const f2 = iso[9].toString();
 											dt0 = Date.now();
 											//Send Killfeed Notification to Discord
-											const url = 'https://thecodegang.com';
-											const link = hyperlink('Sign-up for DayZero', url);
 											const attachment = new AttachmentBuilder('./assets/images/crown.png');
 											const embed = new EmbedBuilder()
 												.setColor('Blue')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.setThumbnail('attachment://crown.png')
-												.setDescription(`${f0} **${f1}** was ${f2}`)
-												.setFooter({ text: `Get Your Free Killfeed! ${link}` });
+												.setDescription(`${f0} **${f1}** was ${f2}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1);
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
 										}
@@ -574,102 +543,94 @@ export default new Command({
 							}
 						});
 					
-						tail.on('error', (err: Error) => {
-							console.log(err);  
-						});
-					
-						setInterval(async () => {
-							if (parseInt(config.mapLoc) === 1) {
-								linkLoc = 'https://www.izurvive.com/livonia/#location='; //LIVONIA
-							}
-							if (parseInt(config.mapLoc) === 0) {
-								linkLoc = 'https://www.izurvive.com/#location='; //CHERNARUS
-							}
+						tail.on('error', (err: Error) => { console.error(err); });
+						setInterval(async () => { // dayz.xam.nu
+							if (parseInt(config.mapLoc) === 1) { linkLoc = 'https://www.izurvive.com/livonia/#location='; } //LIVONIA 
+							if (parseInt(config.mapLoc) === 0) { linkLoc = 'https://www.dayz.xam.nu/#location='; } //CHERNARUS TESTING
 							const REGION = process.env.REGION;
 							if (REGION === 'Frankfurt' || REGION === 'FRANKFURT') {
 								today = moment().tz('Europe/Berlin').format();
-							}else if (REGION === 'Los_Angeles' || REGION === 'Los Angeles') {
+							} else if (REGION === 'Los_Angeles' || REGION === 'Los Angeles') {
 								today = moment().tz('America/Los_Angeles').format();
-							}else if (REGION === 'London' || REGION === 'LONDON') {
+							} else if (REGION === 'London' || REGION === 'LONDON') {
 								today = moment().tz('Europe/London').format();
-							}else if (REGION === 'Miami' || REGION === 'MIAMI') {
+							} else if (REGION === 'Miami' || REGION === 'MIAMI') {
 								today = moment().tz('America/New_York').format();
-							}else if (REGION === 'New_York' || REGION === 'New York') {
+							} else if (REGION === 'New_York' || REGION === 'New York') {
 								today = moment().tz('America/New_York').format();
-							}else if (REGION === 'Singapore' || REGION === 'SINGAPORE') {
+							} else if (REGION === 'Singapore' || REGION === 'SINGAPORE') {
 								today = moment().tz('Asia/Singapore').format();
-							}else if (REGION === 'Sydney' || REGION === 'SYDNEY') {
+							} else if (REGION === 'Sydney' || REGION === 'SYDNEY') {
 								today = moment().tz('Australia/Sydney').format();
-							}else if (REGION === 'Moscow' || REGION === 'MOSCOW') {
+							} else if (REGION === 'Moscow' || REGION === 'MOSCOW') {
 								today = moment().tz('Europe/Moscow').format();
 							}
 							todayRef = today.slice(0, 10);
 							if (feedStart === true) {
-								axios.get('https://api.nitrado.net/ping')
-									.then((res) => {
-										if(res.status >= 200 && res.status < 300) {// Ping Nitrado API For Response
-											const PLATFORM = process.env.PLATFORM;
-											if (process.env.PLATFORM == 'XBOX' || PLATFORM == 'Xbox' || PLATFORM =='xbox') {
-												downloadFile().catch((error) => {console.log(error);});
-												async function downloadFile () {
-													// This function will request file that will contain download link for log
-													const url1 = 'https://api.nitrado.net/services/';
-													const url2 = '/gameservers/file_server/download?file=/games/';
-													const url3 = '/noftp/dayzxb/config/DayZServer_X1_x64.ADM';
-													const filePath = path.resolve('./src/logs', 'serverlog.ADM');
-													const writer = fs.createWriteStream(filePath);
-													const ID1 = process.env.ID1;
-													const ID2 = process.env.ID2;
-													const response = await axios.get(url1+`${ID1}`+url2+`${ID2}`+url3,{ responseType: 'stream',  headers: {'Authorization' : 'Bearer '+`${process.env.NITRATOKEN}`, 'Accept': 'application/octet-stream'}});
-													response.data.pipe(writer);
-													return new Promise((resolve, reject) => {
-														writer.on('finish', resolve);
-														writer.on('error', reject);
-													});					
-												}
-											}else if (PLATFORM == 'PLAYSTATION' || PLATFORM == 'PS4' || PLATFORM == 'PS5' || PLATFORM == 'playstation' || PLATFORM == 'Playstation') {
-												downloadFile().catch((error) => {console.log(error);});
-												// eslint-disable-next-line no-inner-declarations
-												async function downloadFile () {
-													// This function will request file that will contain download link for log
-													const url1 = 'https://api.nitrado.net/services/';
-													const url2 = '/gameservers/file_server/download?file=/games/';
-													const url3 = '/noftp/dayzps/config/DayZServer_PS4_x64.ADM';
-													const filePath = path.resolve('./src/logs', 'serverlog.ADM');
-													const ID1 = process.env.ID1;
-													const ID2 = process.env.ID2;
-													const writer = fs.createWriteStream(filePath);
-													const response = await axios.get(url1+`${ID1}`+url2+`${ID2}`+url3,{ responseType: 'stream',  headers: {'Authorization' : 'Bearer '+`${process.env.NITRATOKEN}`, 'Accept': 'application/octet-stream'}});
-													response.data.pipe(writer);
-													return new Promise((resolve, reject) => {
-														writer.on('finish', resolve);
-														writer.on('error', reject);
-													});					
-												}
-											}else {
-												downloadFile().catch((error) => {console.log(error);});
-												// eslint-disable-next-line no-inner-declarations
-												async function downloadFile () {
-													// This function will request file that will contain download link for log
-													const url1 = 'https://api.nitrado.net/services/';
-													const url2 = '/gameservers/file_server/download?file=/games/';
-													const url3 = '/ftproot/dayzstandalone/config/DayZServer_x64.ADM';
-													const filePath = path.resolve('./src/logs', 'serverlog.ADM');
-													const writer = fs.createWriteStream(filePath);
-													const ID1 = process.env.ID1;
-													const ID2 = process.env.ID2;
-													const response = await axios.get(url1+`${ID1}`+url2+`${ID2}`+url3,{ responseType: 'stream',  headers: {'Authorization' : 'Bearer '+`${process.env.NITRATOKEN}`, 'Accept': 'application/octet-stream'}});
-													response.data.pipe(writer);
-													return new Promise((resolve, reject) => {
-														writer.on('finish', resolve);
-														writer.on('error', reject);
-													});					
-												}
+								axios.get('https://api.nitrado.net/ping').then((res) => {
+									if(res.status >= 200 && res.status < 300) {// Ping Nitrado API For Response
+										const PLATFORM = process.env.PLATFORM;
+										if (process.env.PLATFORM == 'XBOX' || PLATFORM == 'Xbox' || PLATFORM =='xbox') {
+											downloadFile().catch((error) => {console.error(error);});
+											async function downloadFile () {
+												// This function will request file that will contain download link for log
+												const url1 = 'https://api.nitrado.net/services/';
+												const url2 = '/gameservers/file_server/download?file=/games/';
+												const url3 = '/noftp/dayzxb/config/DayZServer_X1_x64.ADM';
+												const filePath = path.resolve('./src/logs', 'serverlog.ADM');
+												const writer = fs.createWriteStream(filePath);
+												const ID1 = process.env.ID1;
+												const ID2 = process.env.ID2;
+												const response = await axios.get(url1+`${ID1}`+url2+`${ID2}`+url3,{ responseType: 'stream',  headers: {'Authorization' : 'Bearer '+`${process.env.NITRATOKEN}`, 'Accept': 'application/octet-stream'}});
+												response.data.pipe(writer);
+												return new Promise((resolve, reject) => {
+													writer.on('finish', resolve);
+													writer.on('error', reject);
+												});					
+											}
+										}else if (PLATFORM == 'PLAYSTATION' || PLATFORM == 'PS4' || PLATFORM == 'PS5' || PLATFORM == 'playstation' || PLATFORM == 'Playstation') {
+											downloadFile().catch((error) => {console.error(error);});
+											// eslint-disable-next-line no-inner-declarations
+											async function downloadFile () {
+												// This function will request file that will contain download link for log
+												const url1 = 'https://api.nitrado.net/services/';
+												const url2 = '/gameservers/file_server/download?file=/games/';
+												const url3 = '/noftp/dayzps/config/DayZServer_PS4_x64.ADM';
+												const filePath = path.resolve('./src/logs', 'serverlog.ADM');
+												const ID1 = process.env.ID1;
+												const ID2 = process.env.ID2;
+												const writer = fs.createWriteStream(filePath);
+												const response = await axios.get(url1+`${ID1}`+url2+`${ID2}`+url3,{ responseType: 'stream',  headers: {'Authorization' : 'Bearer '+`${process.env.NITRATOKEN}`, 'Accept': 'application/octet-stream'}});
+												response.data.pipe(writer);
+												return new Promise((resolve, reject) => {
+													writer.on('finish', resolve);
+													writer.on('error', reject);
+												});					
 											}
 										}else {
-											console.log(res);
+											downloadFile().catch((error) => {console.error(error);});
+											// eslint-disable-next-line no-inner-declarations
+											async function downloadFile () {
+												// This function will request file that will contain download link for log
+												const url1 = 'https://api.nitrado.net/services/';
+												const url2 = '/gameservers/file_server/download?file=/games/';
+												const url3 = '/ftproot/dayzstandalone/config/DayZServer_x64.ADM';
+												const filePath = path.resolve('./src/logs', 'serverlog.ADM');
+												const writer = fs.createWriteStream(filePath);
+												const ID1 = process.env.ID1;
+												const ID2 = process.env.ID2;
+												const response = await axios.get(url1+`${ID1}`+url2+`${ID2}`+url3,{ responseType: 'stream',  headers: {'Authorization' : 'Bearer '+`${process.env.NITRATOKEN}`, 'Accept': 'application/octet-stream'}});
+												response.data.pipe(writer);
+												return new Promise((resolve, reject) => {
+													writer.on('finish', resolve);
+													writer.on('error', reject);
+												});					
+											}
 										}
-									})
+									}else {
+										console.log(res);
+									}
+								})
 									.catch((error) => { console.error(error); });
 								// Create a readable stream in order to parse log download link form file
 								const rl = readline.createInterface({ input: fs.createReadStream('./src/logs/serverlog.ADM') });

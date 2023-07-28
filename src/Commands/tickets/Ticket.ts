@@ -43,7 +43,7 @@ export default new Command({
 		switch (Action) {
 		case 'add':
 			DB.findOne({ GuildID: guildId, ChannelID: channel?.id }, async (err: MongooseError, docs: { MembersID: string[]; save: () => void; }) => {
-				if (err) throw err.message;
+				if (err) throw err;
 				if (!docs) return interaction.reply({
 					embeds: [embed.setColor(Colors.Red).setDescription('⛔ | this channel is not tied with a ticket')], ephemeral: true
 				});
@@ -58,9 +58,7 @@ export default new Command({
 						ReadMessageHistory: true,
 						AttachFiles: true
 					});
-				interaction.reply({
-					content: `${Member}`, embeds: [embed.setColor(Colors.Green).setDescription(`✅ | ${Member} has been added to the ticket`)]
-				});
+				interaction.reply({ content: `${Member}`, embeds: [embed.setColor(Colors.Green).setDescription(`✅ | ${Member} has been added to the ticket`)] });
 				docs.save();
 			});
 			break;
@@ -68,10 +66,10 @@ export default new Command({
 			DB.findOne({ GuildID: guildId, ChannelID: channel?.id }, async (err: any, docs: { MembersID: { includes: (arg0: string) => any; remove: (arg0: string) => void; }; save: () => void; }) => {
 				if (err) throw err;
 				if (!docs) return interaction.reply({
-					embeds: [embed.setColor(Colors.Red).setDescription('⛔ | this channel is not tied with a ticket')], ephemeral: true
+					embeds: [embed.setColor('Red').setDescription('⛔ | this channel is not tied with a ticket')], ephemeral: true
 				});
 				if (!docs.MembersID.includes(Member?.id)) return interaction.reply({
-					embeds: [embed.setColor(Colors.Red).setDescription('⛔ | this member is not in this ticket')], ephemeral: true
+					embeds: [embed.setColor('Red').setDescription('⛔ | this member is not in this ticket')], ephemeral: true
 				});
 				docs.MembersID.remove(Member?.id);
 				if (channel?.type === ChannelType.GuildText)
@@ -79,7 +77,7 @@ export default new Command({
 						ViewChannel: false,
 					});
 				interaction.reply({
-					embeds: [embed.setColor(Colors.Green).setDescription(`✅ | ${Member} has been removed from the ticket`)]
+					embeds: [embed.setColor('Green').setDescription(`✅ | ${Member} has been removed from the ticket`)]
 				});
 				docs.save();
 			});

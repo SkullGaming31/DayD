@@ -1,0 +1,7 @@
+{
+  "semi": true,
+  "files": ["*.html", "*.js", "*.ts"],
+      "options": {
+        "tabWidth": 2
+      }
+}
