@@ -8,6 +8,7 @@ import {
 	Partials,
 	TextBasedChannel,
 	TextChannel,
+	userMention,
 } from 'discord.js';
 import glob from 'glob';
 import { Agent } from 'undici';
@@ -223,9 +224,7 @@ export class ExtendedClient extends Client {
 	async updateVoiceChannelName(): Promise<void> {
 		const voiceChannelID = '1133440952506261576'; // Replace this with the ID of the voice channel you want to update
 
-		const voiceChannel = this.channels.cache.get(
-			voiceChannelID
-		) as TextBasedChannel | null;
+		const voiceChannel = this.channels.cache.get(voiceChannelID) as TextBasedChannel | null;
 		if (!voiceChannel || voiceChannel.type !== ChannelType.GuildVoice) return;
 
 		const serverData = await this.fetchServerData();
@@ -239,9 +238,7 @@ export class ExtendedClient extends Client {
 	async updateSlotsChannel(): Promise<void> {
 		const slotsChannelID = '1133441459144638660'; // Replace this with the ID of the channel you want to update with the slots count
 
-		const slotsChannel = this.channels.cache.get(
-			slotsChannelID
-		) as TextBasedChannel | null;
+		const slotsChannel = this.channels.cache.get(slotsChannelID) as TextBasedChannel | null;
 		if (!slotsChannel || slotsChannel.type !== ChannelType.GuildVoice) return;
 
 		const serverData = await this.fetchServerData();
@@ -254,7 +251,10 @@ export class ExtendedClient extends Client {
 	async startGameServer(message?: string): Promise<void> {
 		try {
 			const requestBody: RestartRequestBody = {};
+			const LogsChannelID = '1131516921137860628';
 
+			const logsChannel = this.channels.cache.get(LogsChannelID) as TextBasedChannel | null;
+			const userCanadien = '353674019943219204';
 			if (message) {
 				requestBody.message = message;
 			}
@@ -273,40 +273,28 @@ export class ExtendedClient extends Client {
 
 			if (response.status === 200) {
 				console.log('Game server started successfully:', response.data);
+				await logsChannel?.send({ content: 'Server has been successfully restarted' });
 			} else {
-				console.error(
-					`Failed to start game server. Status Code: ${response.status}, Status Text: ${response.statusText}`
-				);
+				console.error(`Failed to start game server. Status Code: ${response.status}, Status Text: ${response.statusText}`);
+				await logsChannel?.send({ content: `Server had an issue restarting may need human support ${userMention(userCanadien)}` });
 			}
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
 				if (error.response) {
 					const { status, statusText, data } = error.response;
 					if (status === 401) {
-						console.error(
-							'Failed to start game server. Access token is not valid (anymore).'
-						);
+						console.error('Failed to start game server. Access token is not valid (anymore).');
 					} else if (status === 429) {
-						console.error(
-							'Failed to start game server. Rate limit exceeded. Please contact support for a higher rate limit.'
-						);
+						console.error('Failed to start game server. Rate limit exceeded. Please contact support for a higher rate limit.');
 					} else if (status === 503) {
-						console.error(
-							'Failed to start game server. API is currently unavailable due to maintenance. Please try again later.'
-						);
+						console.error('Failed to start game server. API is currently unavailable due to maintenance. Please try again later.');
 					} else {
-						console.error(
-							`Failed to start game server. Status Code: ${status}, Status Text: ${statusText}, Response Data:`,
-							data
-						);
+						console.error(`Failed to start game server. Status Code: ${status}, Status Text: ${statusText}, Response Data:`, data);
 					}
 				} else if (error.request) {
 					console.error('No response received while starting game server');
 				} else {
-					console.error(
-						'Error setting up request to start game server:',
-						error.message
-					);
+					console.error('Error setting up request to start game server:', error);
 				}
 			} else {
 				console.error('Error starting game server:', error);

@@ -1,22 +1,20 @@
 {
-	"name": "dragonbot",
+	"name": "dayd",
 	"version": "1.0.0",
 	"description": "",
 	"author": "SkullGaming31",
 	"keywords": [],
 	"license": "MIT",
 	"main": "./dist/index.js",
-	"maintainers": [
-		"SkullGaming31"
-	],
+	"maintainers": ["SkullGaming31"],
 	"repository": {
 		"directory": "public",
 		"type": "git",
-		"url": "https://github.com/skullgaming31/dragonbot"
+		"url": "https://github.com/skullgaming31/dayd"
 	},
 	"bugs": {
 		"email": "skullgamingg31@gmail.com",
-		"url": "https://github.com/skullgaming31/dragonbot/issues"
+		"url": "https://github.com/skullgaming31/dayd/issues"
 	},
 	"scripts": {
 		"start": "ts-node ./src/index.ts",

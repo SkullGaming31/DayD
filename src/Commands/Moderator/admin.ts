@@ -44,7 +44,7 @@ const dt = new Date();
 let todayRef = ' ';
 let today: string;
 
-const phrase1 = '>) killed by ', phrase2 = 'AdminLog started on ', phrase3 = 'from',  phrase4 = '>) bled out',  phrase5 = '>) committed suicide', phrase6 = '[HP: 0] hit by FallDamage', phrase7 = 'committed suicide', phrase8 = ' is connected ', phrase9 = ' has been disconnected';
+const phrase1 = '>) killed by ', phrase2 = 'AdminLog started on ', phrase3 = 'from',  phrase4 = '>) bled out',  phrase5 = '>) committed suicide', phrase6 = '[HP: 0] hit by FallDamage', phrase7 = 'committed suicide', phrase9 = 'is connected';
 const nextDay = false;
 let feedStart = false;
 
@@ -136,7 +136,7 @@ export default new Command({
 		},
 	],
 	run: async ({ interaction }) => {
-		const { guildId, options } = interaction;
+		const { guildId, options, guild } = interaction;
 		const subCo = options.getSubcommand();
 		const Category = options.getBoolean('category');
 		
@@ -430,9 +430,9 @@ export default new Command({
 												.setDescription(`${f0} **${f1}** ${f2}`);
 											const tbd = interaction.guild?.channels.cache.get(kfChannel1) as TextBasedChannel;
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed], files: [attachment] }).catch((err: Error) => { console.error(err); });
-										} else if (iso[3] && iso[3].includes('Player is connected')) {
-											const playerName = iso[2];
+										} else if (line.includes(phrase9, 27)) {
 											const connectionTime = iso[0];
+											const playerName = iso[2];
 											// Send Player Connection Notification to Discord
 											const embed = new EmbedBuilder()
 												.setColor('Green')
@@ -451,7 +451,7 @@ export default new Command({
 												])
 												// .setDescription(`**${playerName}** has connected at ${connectionTime}`)
 												.setTimestamp();
-											const tbd = interaction.guild?.channels.cache.get(kfChannel1) as TextBasedChannel;
+											const tbd = guild?.channels.cache.get(kfChannel1) as TextBasedChannel;
 											if (tbd?.isTextBased()) await tbd.send({ embeds: [embed] }).catch((err: Error) => { console.error(err); });
 										} else if (iso[5] && iso[5].includes('has been disconnected')) {
 											const playerName = iso[2];
@@ -459,17 +459,17 @@ export default new Command({
 
 											// Send Player Disconnection Notification to Discord
 											const embed = new EmbedBuilder()
-												.setColor('Green')
+												.setColor('Red')
 												.setTitle(`${process.env.SERVER_NAME} Killfeed Notification`)
 												.addFields([
 													{
 														name: 'disconnection: ',
-														value: disconnectionTime,
+														value: `\`${disconnectionTime}\``,
 														inline: false
 													},
 													{
 														name: 'Gamertag: ',
-														value: playerName,
+														value: `\`${playerName}\``,
 														inline: false
 													}
 												])
@@ -677,7 +677,7 @@ export default new Command({
 								if (tbd?.isTextBased()) await tbd.send({ content: '**K1llfeed Paused....**' }).catch((err: Error) => { console.error(err); });
 								return;
 							}
-						}, 300000);
+						}, 30000);
 					}
 				}
 			} catch (error) {

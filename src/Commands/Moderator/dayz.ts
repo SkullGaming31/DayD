@@ -36,7 +36,7 @@ export default new Command({
 				const announcementChannel = interaction.guild?.channels.cache.get(announcementChannelId) as TextChannel;
 				await interaction.reply({ content: 'Server Restarting...', ephemeral: true });
 				if (announcementChannel?.isTextBased()) {
-					await announcementChannel.send({ content: 'everyone, the server will restart in 5 Minutes' }).catch((err: Error) => {
+					await announcementChannel.send({ content: '@everyone, the server will restart in 5 Minutes' }).catch((err: Error) => {
 						console.error(err);
 					});
 				}
@@ -112,14 +112,14 @@ async function startGameServer(restart_message?: string, message?: string): Prom
 }
 
 // Function to calculate and log the time left in minutes
-function logTimeLeft(startTime: number, announcementChannel: TextChannel) {
+async function logTimeLeft(startTime: number, announcementChannel: TextChannel) {
 	const currentTime = Date.now();
 	const timeLeftMs = 300000 - (currentTime - startTime);
 	const timeLeftMinutes = Math.ceil(timeLeftMs / 60000); // Convert milliseconds to minutes and round up
 	console.log(`Server Restart: ${timeLeftMinutes} minutes`);
 
 	if (timeLeftMinutes === 2) {
-		announcementChannel?.send({ content: 'There are 2 minutes left before the restart. Please log out to prevent corrupted data.' })
+		await announcementChannel?.send({ content: '@here There are 2 minutes left before the restart. Please log out to prevent corrupted data.' })
 			.catch((err: Error) => {
 				console.error(err);
 			});
